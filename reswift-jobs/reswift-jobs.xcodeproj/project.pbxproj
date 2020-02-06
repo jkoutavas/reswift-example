@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		69F3509E23EA0A7100F61437 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3509D23EA0A7100F61437 /* Document.swift */; };
 		69F350A023EA0A7300F61437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69F3509F23EA0A7300F61437 /* Assets.xcassets */; };
 		69F350A323EA0A7300F61437 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F350A123EA0A7300F61437 /* Main.storyboard */; };
+		69F350AD23EB9F8700F61437 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 69F350AC23EB9F8700F61437 /* ReSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69F350AD23EB9F8700F61437 /* ReSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +84,9 @@
 			dependencies = (
 			);
 			name = "reswift-jobs";
+			packageProductDependencies = (
+				69F350AC23EB9F8700F61437 /* ReSwift */,
+			);
 			productName = "reswift-jobs";
 			productReference = 69F3509623EA0A7100F61437 /* reswift-jobs.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +115,9 @@
 				Base,
 			);
 			mainGroup = 69F3508D23EA0A7100F61437;
+			packageReferences = (
+				69F350AB23EB9F8700F61437 /* XCRemoteSwiftPackageReference "ReSwift" */,
+			);
 			productRefGroup = 69F3509723EA0A7100F61437 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -327,6 +335,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		69F350AB23EB9F8700F61437 /* XCRemoteSwiftPackageReference "ReSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReSwift/ReSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		69F350AC23EB9F8700F61437 /* ReSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69F350AB23EB9F8700F61437 /* XCRemoteSwiftPackageReference "ReSwift" */;
+			productName = ReSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 69F3508E23EA0A7100F61437 /* Project object */;
 }
