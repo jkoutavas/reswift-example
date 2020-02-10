@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		69AE636F23F0DB2400BF70EA /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE636E23F0DB2400BF70EA /* WindowController.swift */; };
+		69AE637123F0DEDF00BF70EA /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE637023F0DEDF00BF70EA /* Employee.swift */; };
 		69F3509A23EA0A7100F61437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3509923EA0A7100F61437 /* AppDelegate.swift */; };
 		69F3509C23EA0A7100F61437 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3509B23EA0A7100F61437 /* ViewController.swift */; };
 		69F3509E23EA0A7100F61437 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3509D23EA0A7100F61437 /* Document.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		69AE636E23F0DB2400BF70EA /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		69AE637023F0DEDF00BF70EA /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		69F3509623EA0A7100F61437 /* reswift-jobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "reswift-jobs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F3509923EA0A7100F61437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69F3509B23EA0A7100F61437 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,13 +62,14 @@
 			isa = PBXGroup;
 			children = (
 				69F3509923EA0A7100F61437 /* AppDelegate.swift */,
-				69F3509B23EA0A7100F61437 /* ViewController.swift */,
 				69F3509D23EA0A7100F61437 /* Document.swift */,
+				69AE637023F0DEDF00BF70EA /* Employee.swift */,
+				69F3509B23EA0A7100F61437 /* ViewController.swift */,
+				69AE636E23F0DB2400BF70EA /* WindowController.swift */,
 				69F3509F23EA0A7300F61437 /* Assets.xcassets */,
 				69F350A123EA0A7300F61437 /* Main.storyboard */,
 				69F350A423EA0A7300F61437 /* Info.plist */,
 				69F350A523EA0A7300F61437 /* reswift_jobs.entitlements */,
-				69AE636E23F0DB2400BF70EA /* WindowController.swift */,
 			);
 			path = "reswift-jobs";
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 				69F3509C23EA0A7100F61437 /* ViewController.swift in Sources */,
 				69AE636F23F0DB2400BF70EA /* WindowController.swift in Sources */,
 				69F3509A23EA0A7100F61437 /* AppDelegate.swift in Sources */,
+				69AE637123F0DEDF00BF70EA /* Employee.swift in Sources */,
 				69F3509E23EA0A7100F61437 /* Document.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

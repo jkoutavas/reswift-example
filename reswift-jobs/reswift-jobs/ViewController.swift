@@ -14,12 +14,7 @@ class ViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDe
     @IBOutlet var nameColumn: NSTableColumn!
     @IBOutlet var skillsColumn: NSTableColumn!
     
-    struct Employee {
-        var name: String
-        var skills: String
-    }
-    
-    var employees: [Employee] = [Employee(name:"Bob", skills:"Foreman")]
+    var employees: [Employee] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +22,8 @@ class ViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDe
 
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            employees = representedObject as! [Employee]
+            employeeTable?.reloadData()
         }
     }
 

@@ -10,6 +10,8 @@ import Cocoa
 
 class Document: NSDocument {
 
+    var employees: [Employee] = [Employee(name:"Bob", skills:"Foreman")]
+
     override init() {
         super.init()
         // Add your subclass-specific initialization here.
@@ -24,6 +26,11 @@ class Document: NSDocument {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! NSWindowController
         self.addWindowController(windowController)
+        
+        // Set the view controller's represented object as your document.
+        if let contentVC = windowController.contentViewController as? ViewController {
+            contentVC.representedObject = employees
+        }
     }
 
     override func data(ofType typeName: String) throws -> Data {
