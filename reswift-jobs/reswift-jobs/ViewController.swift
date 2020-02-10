@@ -8,12 +8,21 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
+
+    @IBOutlet var employeeTable: NSOutlineView?
+    @IBOutlet var nameColumn: NSTableColumn!
+    @IBOutlet var skillsColumn: NSTableColumn!
+    
+    struct Employee {
+        var name: String
+        var skills: String
+    }
+    
+    var employees: [Employee] = [Employee(name:"Bob", skills:"Foreman")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override var representedObject: Any? {
@@ -22,6 +31,43 @@ class ViewController: NSViewController {
         }
     }
 
+   // MARK: - NSOutlineViewDataSource
 
+   func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
+       employees.count
+   }
+
+   func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
+       employees[index]
+   }
+
+   // MARK: - NSOutlineViewDelegate
+
+   func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
+       return false
+   }
+
+   func outlineView(_ outlineVIew: NSOutlineView, shouldSelectItem item: Any) -> Bool {
+       return true
+   }
+
+   func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
+       guard let cell = outlineView.makeView(withIdentifier: tableColumn!.identifier, owner: self)
+           as? NSTableCellView else { return nil }
+       guard let textField = cell.textField else { return nil }
+
+       if let employee = item as? Employee {
+           switch tableColumn {
+           case nameColumn:
+               textField.stringValue = employee.name
+           case skillsColumn:
+               textField.stringValue = employee.skills
+            default:
+               print("Skipping \((tableColumn?.identifier)!.rawValue) column")
+           }
+       }
+
+       return cell
+   }
 }
 
