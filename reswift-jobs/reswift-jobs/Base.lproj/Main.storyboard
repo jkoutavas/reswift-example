@@ -712,14 +712,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3h7-IS-zsB">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="273"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="235"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="Bo4-6l-PIG">
-                                    <rect key="frame" x="1" y="0.0" width="478" height="272"/>
+                                    <rect key="frame" x="1" y="0.0" width="478" height="234"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="7Rr-el-X1X" viewBased="YES" indentationPerLevel="16" outlineTableColumn="FeU-Wc-Gx6" id="E2c-VY-6h7">
-                                            <rect key="frame" x="0.0" y="0.0" width="478" height="247"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="478" height="209"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -812,10 +812,29 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lZ8-E5-gno">
+                                <rect key="frame" x="42" y="243" width="418" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="gVW-OB-Vfd">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rhl-CE-fmz">
+                                <rect key="frame" x="5" y="246" width="31" height="16"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Job:" id="5X2-Mr-Qg9">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="employeeTable" destination="E2c-VY-6h7" id="GbI-6W-gz4"/>
+                        <outlet property="jobTitleEdit" destination="lZ8-E5-gno" id="JMB-jd-9Ie"/>
                         <outlet property="nameColumn" destination="FeU-Wc-Gx6" id="0ip-pp-cl5"/>
                         <outlet property="skillsColumn" destination="rNU-B7-XEW" id="IqI-p2-fYp"/>
                     </connections>
@@ -833,7 +852,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Di-59-05C">
-                                <rect key="frame" x="80.5" y="5" width="23" height="23"/>
+                                <rect key="frame" x="80" y="5" width="23" height="23"/>
                                 <buttonCell key="cell" type="roundTextured" title="+" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PpS-Qw-Q8n">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>

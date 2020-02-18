@@ -10,7 +10,8 @@ import Cocoa
 
 class ViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
 
-    @IBOutlet var employeeTable: NSOutlineView?
+    @IBOutlet var employeeTable: NSOutlineView!
+    @IBOutlet var jobTitleEdit: NSTextField!
     @IBOutlet var nameColumn: NSTableColumn!
     @IBOutlet var skillsColumn: NSTableColumn!
     
@@ -67,3 +68,18 @@ class ViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDe
    }
 }
 
+// MARK: Displaying Data
+
+protocol DisplaysJob {
+    func displayJob(jobViewModel viewModel: JobViewModel)
+}
+
+extension ViewController: DisplaysJob {
+    func displayJob(jobViewModel viewModel: JobViewModel) {
+        displayJobTitle(viewModel: viewModel)
+    }
+    
+    fileprivate func displayJobTitle(viewModel: JobViewModel) {
+        jobTitleEdit.stringValue = viewModel.title
+    }
+}

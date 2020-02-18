@@ -7,10 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		69AE636F23F0DB2400BF70EA /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE636E23F0DB2400BF70EA /* WindowController.swift */; };
-		69AE637123F0DEDF00BF70EA /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE637023F0DEDF00BF70EA /* Employee.swift */; };
+		69AE637723F0E58900BF70EA /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE637523F0E58900BF70EA /* Employee.swift */; };
+		69AE637C23F0E6C700BF70EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE637923F0E6C600BF70EA /* ViewController.swift */; };
+		69AE637D23F0E6C700BF70EA /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE637A23F0E6C600BF70EA /* WindowController.swift */; };
+		69AE638323F0E9FD00BF70EA /* JobPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE638123F0E9FD00BF70EA /* JobPresenter.swift */; };
+		69AE638A23F0ED1600BF70EA /* JobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE638923F0ED1600BF70EA /* JobViewModel.swift */; };
+		69AE638C23F0ED2900BF70EA /* EmployeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE638B23F0ED2900BF70EA /* EmployeeViewModel.swift */; };
+		69AE638E23F0EE1D00BF70EA /* JobState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE638D23F0EE1D00BF70EA /* JobState.swift */; };
+		69AE639023F0EE8100BF70EA /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE638F23F0EE8100BF70EA /* Job.swift */; };
+		69AE639223F0F3A800BF70EA /* EmployeeID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE639123F0F3A800BF70EA /* EmployeeID.swift */; };
+		69AE639423F203D700BF70EA /* JobStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE639323F203D700BF70EA /* JobStore.swift */; };
+		69AE639723F4A93400BF70EA /* Undoable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE639623F4A93400BF70EA /* Undoable.swift */; };
+		69AE639923F4A95E00BF70EA /* NotUndoable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE639823F4A95E00BF70EA /* NotUndoable.swift */; };
+		69AE639B23F9FD3E00BF70EA /* UndoActionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE639A23F9FD3E00BF70EA /* UndoActionContext.swift */; };
+		69AE639D23FA0AA400BF70EA /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE639C23FA0AA400BF70EA /* LoggingMiddleware.swift */; };
+		69AE63AA23FB75EC00BF70EA /* JobReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63A823FB75EC00BF70EA /* JobReducer.swift */; };
+		69AE63AB23FB75EC00BF70EA /* JobActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63A923FB75EC00BF70EA /* JobActions.swift */; };
+		69AE63AD23FB760700BF70EA /* EmployeeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63AC23FB760700BF70EA /* EmployeeReducer.swift */; };
+		69AE63AF23FB77ED00BF70EA /* EmployeeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63AE23FB77ED00BF70EA /* EmployeeActions.swift */; };
+		69AE63B123FB7C9F00BF70EA /* UndoMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63B023FB7C9F00BF70EA /* UndoMiddleware.swift */; };
+		69AE63B423FB8A5400BF70EA /* UndoCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63B323FB8A5400BF70EA /* UndoCommand.swift */; };
+		69AE63B723FCAAD500BF70EA /* SelectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63B623FCAAD500BF70EA /* SelectionState.swift */; };
+		69AE63B923FCAB1000BF70EA /* SelectionReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63B823FCAB1000BF70EA /* SelectionReducer.swift */; };
+		69AE63BB23FCAB4000BF70EA /* SelectionActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63BA23FCAB4000BF70EA /* SelectionActions.swift */; };
+		69AE63BD23FCAC6400BF70EA /* RemoveIdempotentActionsMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63BC23FCAC6400BF70EA /* RemoveIdempotentActionsMiddleware.swift */; };
 		69F3509A23EA0A7100F61437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3509923EA0A7100F61437 /* AppDelegate.swift */; };
-		69F3509C23EA0A7100F61437 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3509B23EA0A7100F61437 /* ViewController.swift */; };
 		69F3509E23EA0A7100F61437 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3509D23EA0A7100F61437 /* Document.swift */; };
 		69F350A023EA0A7300F61437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69F3509F23EA0A7300F61437 /* Assets.xcassets */; };
 		69F350A323EA0A7300F61437 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F350A123EA0A7300F61437 /* Main.storyboard */; };
@@ -18,11 +39,32 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		69AE636E23F0DB2400BF70EA /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
-		69AE637023F0DEDF00BF70EA /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		69AE637523F0E58900BF70EA /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		69AE637923F0E6C600BF70EA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		69AE637A23F0E6C600BF70EA /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		69AE638123F0E9FD00BF70EA /* JobPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobPresenter.swift; sourceTree = "<group>"; };
+		69AE638923F0ED1600BF70EA /* JobViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobViewModel.swift; sourceTree = "<group>"; };
+		69AE638B23F0ED2900BF70EA /* EmployeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewModel.swift; sourceTree = "<group>"; };
+		69AE638D23F0EE1D00BF70EA /* JobState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobState.swift; sourceTree = "<group>"; };
+		69AE638F23F0EE8100BF70EA /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		69AE639123F0F3A800BF70EA /* EmployeeID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeID.swift; sourceTree = "<group>"; };
+		69AE639323F203D700BF70EA /* JobStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobStore.swift; sourceTree = "<group>"; };
+		69AE639623F4A93400BF70EA /* Undoable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Undoable.swift; sourceTree = "<group>"; };
+		69AE639823F4A95E00BF70EA /* NotUndoable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotUndoable.swift; sourceTree = "<group>"; };
+		69AE639A23F9FD3E00BF70EA /* UndoActionContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoActionContext.swift; sourceTree = "<group>"; };
+		69AE639C23FA0AA400BF70EA /* LoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingMiddleware.swift; sourceTree = "<group>"; };
+		69AE63A823FB75EC00BF70EA /* JobReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobReducer.swift; sourceTree = "<group>"; };
+		69AE63A923FB75EC00BF70EA /* JobActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobActions.swift; sourceTree = "<group>"; };
+		69AE63AC23FB760700BF70EA /* EmployeeReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeReducer.swift; sourceTree = "<group>"; };
+		69AE63AE23FB77ED00BF70EA /* EmployeeActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeActions.swift; sourceTree = "<group>"; };
+		69AE63B023FB7C9F00BF70EA /* UndoMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoMiddleware.swift; sourceTree = "<group>"; };
+		69AE63B323FB8A5400BF70EA /* UndoCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoCommand.swift; sourceTree = "<group>"; };
+		69AE63B623FCAAD500BF70EA /* SelectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionState.swift; sourceTree = "<group>"; };
+		69AE63B823FCAB1000BF70EA /* SelectionReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionReducer.swift; sourceTree = "<group>"; };
+		69AE63BA23FCAB4000BF70EA /* SelectionActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionActions.swift; sourceTree = "<group>"; };
+		69AE63BC23FCAC6400BF70EA /* RemoveIdempotentActionsMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveIdempotentActionsMiddleware.swift; sourceTree = "<group>"; };
 		69F3509623EA0A7100F61437 /* reswift-jobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "reswift-jobs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F3509923EA0A7100F61437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		69F3509B23EA0A7100F61437 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		69F3509D23EA0A7100F61437 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		69F3509F23EA0A7300F61437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69F350A223EA0A7300F61437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,6 +84,90 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69AE637423F0E58900BF70EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				69AE637523F0E58900BF70EA /* Employee.swift */,
+				69AE639123F0F3A800BF70EA /* EmployeeID.swift */,
+				69AE638F23F0EE8100BF70EA /* Job.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		69AE637623F0E58900BF70EA /* State */ = {
+			isa = PBXGroup;
+			children = (
+				69AE63A623FB75EC00BF70EA /* Employee Actions */,
+				69AE63A723FB75EC00BF70EA /* Job Actions */,
+				69AE638D23F0EE1D00BF70EA /* JobState.swift */,
+				69AE639323F203D700BF70EA /* JobStore.swift */,
+				69AE63B523FCAAB900BF70EA /* Selection Changes */,
+				69AE639523F4A91E00BF70EA /* Undo */,
+				69AE639C23FA0AA400BF70EA /* LoggingMiddleware.swift */,
+				69AE63BC23FCAC6400BF70EA /* RemoveIdempotentActionsMiddleware.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		69AE637823F0E6C600BF70EA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				69AE638B23F0ED2900BF70EA /* EmployeeViewModel.swift */,
+				69AE638123F0E9FD00BF70EA /* JobPresenter.swift */,
+				69AE638923F0ED1600BF70EA /* JobViewModel.swift */,
+				69AE637923F0E6C600BF70EA /* ViewController.swift */,
+				69AE637A23F0E6C600BF70EA /* WindowController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		69AE639523F4A91E00BF70EA /* Undo */ = {
+			isa = PBXGroup;
+			children = (
+				69AE639623F4A93400BF70EA /* Undoable.swift */,
+				69AE639823F4A95E00BF70EA /* NotUndoable.swift */,
+				69AE639A23F9FD3E00BF70EA /* UndoActionContext.swift */,
+				69AE63B023FB7C9F00BF70EA /* UndoMiddleware.swift */,
+			);
+			path = Undo;
+			sourceTree = "<group>";
+		};
+		69AE63A623FB75EC00BF70EA /* Employee Actions */ = {
+			isa = PBXGroup;
+			children = (
+				69AE63AE23FB77ED00BF70EA /* EmployeeActions.swift */,
+				69AE63AC23FB760700BF70EA /* EmployeeReducer.swift */,
+			);
+			path = "Employee Actions";
+			sourceTree = "<group>";
+		};
+		69AE63A723FB75EC00BF70EA /* Job Actions */ = {
+			isa = PBXGroup;
+			children = (
+				69AE63A923FB75EC00BF70EA /* JobActions.swift */,
+				69AE63A823FB75EC00BF70EA /* JobReducer.swift */,
+			);
+			path = "Job Actions";
+			sourceTree = "<group>";
+		};
+		69AE63B223FB8A2F00BF70EA /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				69AE63B323FB8A5400BF70EA /* UndoCommand.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		69AE63B523FCAAB900BF70EA /* Selection Changes */ = {
+			isa = PBXGroup;
+			children = (
+				69AE63BA23FCAB4000BF70EA /* SelectionActions.swift */,
+				69AE63B823FCAB1000BF70EA /* SelectionReducer.swift */,
+				69AE63B623FCAAD500BF70EA /* SelectionState.swift */,
+			);
+			path = "Selection Changes";
+			sourceTree = "<group>";
+		};
 		69F3508D23EA0A7100F61437 = {
 			isa = PBXGroup;
 			children = (
@@ -61,11 +187,12 @@
 		69F3509823EA0A7100F61437 /* reswift-jobs */ = {
 			isa = PBXGroup;
 			children = (
+				69AE63B223FB8A2F00BF70EA /* Infrastructure */,
+				69AE637423F0E58900BF70EA /* Model */,
+				69AE637623F0E58900BF70EA /* State */,
+				69AE637823F0E6C600BF70EA /* UI */,
 				69F3509923EA0A7100F61437 /* AppDelegate.swift */,
 				69F3509D23EA0A7100F61437 /* Document.swift */,
-				69AE637023F0DEDF00BF70EA /* Employee.swift */,
-				69F3509B23EA0A7100F61437 /* ViewController.swift */,
-				69AE636E23F0DB2400BF70EA /* WindowController.swift */,
 				69F3509F23EA0A7300F61437 /* Assets.xcassets */,
 				69F350A123EA0A7300F61437 /* Main.storyboard */,
 				69F350A423EA0A7300F61437 /* Info.plist */,
@@ -150,11 +277,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69F3509C23EA0A7100F61437 /* ViewController.swift in Sources */,
-				69AE636F23F0DB2400BF70EA /* WindowController.swift in Sources */,
+				69AE637723F0E58900BF70EA /* Employee.swift in Sources */,
+				69AE639423F203D700BF70EA /* JobStore.swift in Sources */,
+				69AE637D23F0E6C700BF70EA /* WindowController.swift in Sources */,
+				69AE639923F4A95E00BF70EA /* NotUndoable.swift in Sources */,
+				69AE63BD23FCAC6400BF70EA /* RemoveIdempotentActionsMiddleware.swift in Sources */,
+				69AE63B123FB7C9F00BF70EA /* UndoMiddleware.swift in Sources */,
+				69AE638323F0E9FD00BF70EA /* JobPresenter.swift in Sources */,
+				69AE63AB23FB75EC00BF70EA /* JobActions.swift in Sources */,
+				69AE63B423FB8A5400BF70EA /* UndoCommand.swift in Sources */,
+				69AE638C23F0ED2900BF70EA /* EmployeeViewModel.swift in Sources */,
+				69AE639223F0F3A800BF70EA /* EmployeeID.swift in Sources */,
+				69AE639D23FA0AA400BF70EA /* LoggingMiddleware.swift in Sources */,
+				69AE63AD23FB760700BF70EA /* EmployeeReducer.swift in Sources */,
+				69AE639723F4A93400BF70EA /* Undoable.swift in Sources */,
+				69AE638A23F0ED1600BF70EA /* JobViewModel.swift in Sources */,
 				69F3509A23EA0A7100F61437 /* AppDelegate.swift in Sources */,
-				69AE637123F0DEDF00BF70EA /* Employee.swift in Sources */,
+				69AE63AF23FB77ED00BF70EA /* EmployeeActions.swift in Sources */,
+				69AE639B23F9FD3E00BF70EA /* UndoActionContext.swift in Sources */,
+				69AE63B923FCAB1000BF70EA /* SelectionReducer.swift in Sources */,
+				69AE639023F0EE8100BF70EA /* Job.swift in Sources */,
+				69AE63AA23FB75EC00BF70EA /* JobReducer.swift in Sources */,
+				69AE63BB23FCAB4000BF70EA /* SelectionActions.swift in Sources */,
+				69AE63B723FCAAD500BF70EA /* SelectionState.swift in Sources */,
+				69AE637C23F0E6C700BF70EA /* ViewController.swift in Sources */,
 				69F3509E23EA0A7100F61437 /* Document.swift in Sources */,
+				69AE638E23F0EE1D00BF70EA /* JobState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

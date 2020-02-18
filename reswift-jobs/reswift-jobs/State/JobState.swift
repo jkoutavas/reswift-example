@@ -1,5 +1,5 @@
 //
-//  Employee.swift
+//  JobState.swift
 //  reswift-jobs
 //
 //  Created by Jay Koutavas on 2/9/20.
@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import ReSwift
 
-struct Employee {
-   var name: String
-   var skills: String
+struct JobState: StateType {
+
+    var job: Job = Job.demoJob()
+    var selection: SelectionState = nil
 }
-
