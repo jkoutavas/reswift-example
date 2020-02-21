@@ -90,7 +90,7 @@ class ViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDe
            delegate?.jobViewControllerDidLoad(self)
        }
    }
-/*
+
    var dataSource: EmployeeTableDataSourceType = EmployeeTableDataSource() {
 
        didSet {
@@ -98,7 +98,7 @@ class ViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDe
 //           keyboardEventHandler?.dataSource = dataSource
        }
    }
-*/
+
    var store: JobStore? {
 
        didSet {
@@ -133,19 +133,19 @@ protocol JobViewControllerDelegate: class {
 
 protocol EmployeeTableDataSourceType {
 
-    var tableDataSource: NSTableViewDataSource { get }
+    var tableDataSource: NSOutlineViewDataSource { get }
 
     var selectedRow: Int? { get }
     var selectedEmployee: EmployeeViewModel? { get }
     var employeeCount: Int { get }
 
     func updateContents(jobViewModel viewModel: JobViewModel)
-//    func employeeCellView(tableView: NSTableView, row: Int, owner: AnyObject) -> EmployeeCellView?
+    func employeeCellView(tableView: NSOutlineView, row: Int, owner: AnyObject) -> EmployeeCellView?
 }
 
-extension EmployeeTableDataSourceType where Self: NSTableViewDataSource {
+extension EmployeeTableDataSourceType where Self: NSOutlineViewDataSource {
 
-    var tableDataSource: NSTableViewDataSource {
+    var tableDataSource: NSOutlineViewDataSource {
         return self
     }
 }
@@ -175,7 +175,7 @@ extension ViewController: DisplaysJob {
 
     fileprivate func updateTableDataSource(viewModel: JobViewModel) {
 
-//        dataSource.updateContents(jobViewModel: viewModel)
+        dataSource.updateContents(jobViewModel: viewModel)
         tableView.reloadData()
     }
 
