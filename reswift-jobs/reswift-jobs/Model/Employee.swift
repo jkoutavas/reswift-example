@@ -25,7 +25,7 @@ struct Employee {
 
 extension Employee: Equatable {
 
-    /// Equality check ignoring the `ToDoID`.
+    /// Equality check ignoring the `EmployeeID`.
     func hasEqualContent(_ other: Employee) -> Bool {
 
         return name == other.name && skills == other.skills

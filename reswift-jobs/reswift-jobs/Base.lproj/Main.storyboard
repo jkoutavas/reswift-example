@@ -820,6 +820,9 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="changeTitle:" target="5gI-5U-AMq" id="wNu-Sq-L19"/>
+                                </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rhl-CE-fmz">
                                 <rect key="frame" x="5" y="246" width="31" height="16"/>
@@ -833,10 +836,10 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="employeeTable" destination="E2c-VY-6h7" id="GbI-6W-gz4"/>
                         <outlet property="jobTitleEdit" destination="lZ8-E5-gno" id="JMB-jd-9Ie"/>
                         <outlet property="nameColumn" destination="FeU-Wc-Gx6" id="0ip-pp-cl5"/>
                         <outlet property="skillsColumn" destination="rNU-B7-XEW" id="IqI-p2-fYp"/>
+                        <outlet property="tableView" destination="E2c-VY-6h7" id="hSz-Hr-bu4"/>
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -852,7 +855,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Di-59-05C">
-                                <rect key="frame" x="80" y="5" width="23" height="23"/>
+                                <rect key="frame" x="79.5" y="5" width="24" height="23"/>
                                 <buttonCell key="cell" type="roundTextured" title="+" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PpS-Qw-Q8n">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>

@@ -32,7 +32,10 @@ extension JobPresenter: StoreSubscriber {
 
     func newState(state: JobState) {
         let itemViewModels = state.job.items.map(EmployeeViewModel.init)
-        let viewModel = JobViewModel(title: state.job.title ?? "", items: itemViewModels)
+        let viewModel = JobViewModel(
+            title: state.job.title ?? "",
+            items: itemViewModels,
+            selectedRow: state.selection)
 
         view.displayJob(jobViewModel: viewModel)
     }

@@ -12,4 +12,11 @@ struct JobViewModel {
     let title: String
     let items: [EmployeeViewModel]
     var itemCount: Int { return items.count }
+    
+    let selectedRow: Int?
+    var selectedEmployee: EmployeeViewModel? {
+
+        guard let selectedRow = selectedRow else { return nil }
+        return items[selectedRow]
+    }
 }

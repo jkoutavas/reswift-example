@@ -10,12 +10,15 @@ import Cocoa
 
 class Document: NSDocument {
 
+    // MARK: - Initialization
+
+    lazy var store: JobStore = jobStore(undoManager: self.undoManager!)
+    
+    var presenter: JobPresenter!
+
     var employees: [Employee] = [Employee(name:"Bob", skills:"Foreman")]
 
-    override init() {
-        super.init()
-        // Add your subclass-specific initialization here.
-    }
+    // MARK: - Saving/Loading Data
 
     override class var autosavesInPlace: Bool {
         return true
@@ -29,6 +32,9 @@ class Document: NSDocument {
         
         // Set the view controller's represented object as your document.
         if let contentVC = windowController.contentViewController as? ViewController {
+            self.presenter = JobPresenter(view: contentVC)
+            contentVC.delegate = self
+            contentVC.store = self.store
             contentVC.representedObject = employees
         }
     }
@@ -45,7 +51,16 @@ class Document: NSDocument {
         // If you do, you should also override isEntireFileLoaded to return false if the contents are lazily loaded.
         throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
     }
-
-
 }
 
+extension Document: JobViewControllerDelegate {
+    func jobViewControllerDidLoad(_ controller: ViewController) {
+
+        store.subscribe(presenter)
+    }
+
+    func jobViewControllerWillClose(_ controller: ViewController) {
+
+        store.unsubscribe(presenter)
+    }
+}

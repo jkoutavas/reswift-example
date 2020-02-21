@@ -30,7 +30,7 @@ struct RenameJobAction: UndoableAction, JobAction {
         return result
     }
 
-    var name: String { return "Rename Project" }
+    var name: String { return "Rename Job" }
     var isUndoable: Bool { return true }
 
     func inverse(context: UndoActionContext) -> UndoableAction? {

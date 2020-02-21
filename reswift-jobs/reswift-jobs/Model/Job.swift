@@ -78,7 +78,7 @@ extension Job {
 }
 
 extension Job: Equatable {
-    /// Equality check ignoring the `items`'s `ToDoID`s.
+    /// Equality check ignoring the `items`'s EmployeeID`s.
     func hasEqualContent(_ other: Job) -> Bool {
 
         guard title == other.title else { return false }
