@@ -16,8 +16,6 @@ class Document: NSDocument {
     
     var presenter: JobPresenter!
 
-    var employees: [Employee] = [Employee(name:"Bob", skills:"Foreman")]
-
     // MARK: - Saving/Loading Data
 
     override class var autosavesInPlace: Bool {
@@ -33,9 +31,8 @@ class Document: NSDocument {
         // Set the view controller's represented object as your document.
         if let contentVC = windowController.contentViewController as? ViewController {
             self.presenter = JobPresenter(view: contentVC)
-            contentVC.delegate = self
             contentVC.store = self.store
-            contentVC.representedObject = employees
+            contentVC.delegate = self
         }
     }
 

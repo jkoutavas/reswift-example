@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
+class ViewController: NSViewController {
 
     @IBOutlet var tableView: NSOutlineView!
     @IBOutlet var jobTitleEdit: NSTextField!
@@ -16,8 +16,6 @@ class ViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDe
     @IBOutlet var skillsColumn: NSTableColumn!
 
 //    @IBOutlet var keyboardEventHandler: KeyboardEventHandler?
-
-    var employees: [Employee] = []
 
     fileprivate var didLoad = false {
         didSet {
@@ -28,58 +26,15 @@ class ViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.dataSource = self.dataSource.tableDataSource
+        tableView.delegate = self
+        
 //        keyboardEventHandler?.dataSource = self.dataSource
 //        keyboardEventHandler?.store = self.store
         
         didLoad = true
     }
 
-    override var representedObject: Any? {
-        didSet {
-            employees = representedObject as! [Employee]
-            tableView?.reloadData()
-        }
-    }
-
-   // MARK: - NSOutlineViewDataSource
-
-   func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-       employees.count
-   }
-
-   func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-       employees[index]
-   }
-
-   // MARK: - NSOutlineViewDelegate
-
-   func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-       return false
-   }
-
-   func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool {
-       return true
-   }
-
-   func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-       guard let cell = outlineView.makeView(withIdentifier: tableColumn!.identifier, owner: self)
-           as? NSTableCellView else { return nil }
-       guard let textField = cell.textField else { return nil }
-
-       if let employee = item as? Employee {
-           switch tableColumn {
-           case nameColumn:
-               textField.stringValue = employee.name
-           case skillsColumn:
-               textField.stringValue = employee.skills
-            default:
-               print("Skipping \((tableColumn?.identifier)!.rawValue) column")
-           }
-       }
-
-       return cell
-   }
-   
    /// Changing the `delegate` while the window is displayed
    /// calls the `jobViewControllerDidLoad` callback
    /// on the new `delegate`.
@@ -90,15 +45,14 @@ class ViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDe
            delegate?.jobViewControllerDidLoad(self)
        }
    }
-/*
+   
    var dataSource: EmployeeTableDataSourceType = EmployeeTableDataSource() {
-
        didSet {
            tableView.dataSource = dataSource.tableDataSource
 //           keyboardEventHandler?.dataSource = dataSource
        }
    }
-*/
+
    var store: JobStore? {
 
        didSet {
@@ -133,19 +87,18 @@ protocol JobViewControllerDelegate: class {
 
 protocol EmployeeTableDataSourceType {
 
-    var tableDataSource: NSTableViewDataSource { get }
+    var tableDataSource: NSOutlineViewDataSource { get }
 
     var selectedRow: Int? { get }
     var selectedEmployee: EmployeeViewModel? { get }
     var employeeCount: Int { get }
 
     func updateContents(jobViewModel viewModel: JobViewModel)
-//    func employeeCellView(tableView: NSTableView, row: Int, owner: AnyObject) -> EmployeeCellView?
 }
 
-extension EmployeeTableDataSourceType where Self: NSTableViewDataSource {
+extension EmployeeTableDataSourceType where Self: NSOutlineViewDataSource {
 
-    var tableDataSource: NSTableViewDataSource {
+    var tableDataSource: NSOutlineViewDataSource {
         return self
     }
 }
@@ -169,18 +122,15 @@ extension ViewController: DisplaysJob {
     }
 
     fileprivate func displayJobTitle(viewModel: JobViewModel) {
-
         jobTitleEdit.stringValue = viewModel.title
     }
 
     fileprivate func updateTableDataSource(viewModel: JobViewModel) {
-
-//        dataSource.updateContents(jobViewModel: viewModel)
+        dataSource.updateContents(jobViewModel: viewModel)
         tableView.reloadData()
     }
 
     fileprivate func displaySelection(viewModel: JobViewModel) {
-
         guard let selectedRow = viewModel.selectedRow else {
             tableView.selectRowIndexes(IndexSet(), byExtendingSelection: false)
             return
@@ -190,27 +140,38 @@ extension ViewController: DisplaysJob {
     }
 
     fileprivate func focusTableView() {
-
         self.view.window?.makeFirstResponder(tableView)
     }
 }
 
-/*
 // MARK: Cell creation & event handling
 
-extension ViewController: NSTableViewDelegate {
+ extension ViewController: NSOutlineViewDelegate {
 
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-
-        guard let cellView = dataSource.jobCellView(tableView: tableView, row: row, owner: self)
-            else { return nil }
-
-        cellView.employeeItemChangeDelegate = self
-
-        return cellView
+    func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool {
+        return true
     }
 
-    func tableViewSelectionDidChange(_ notification: Notification) {
+    func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
+        guard let cell = outlineView.makeView(withIdentifier: tableColumn!.identifier, owner: self)
+            as? NSTableCellView else { return nil }
+        guard let textField = cell.textField else { return nil }
+
+        if let viewModel = item as? EmployeeViewModel {
+            switch tableColumn {
+            case nameColumn:
+                textField.stringValue = viewModel.name
+            case skillsColumn:
+                textField.stringValue = viewModel.skills
+             default:
+                print("Skipping \((tableColumn?.identifier)!.rawValue) column")
+            }
+        }
+
+        return cell
+    }
+    
+    func outlineViewSelectionDidChange(_ notification: Notification) {
 
         let action: SelectionAction = {
             // "None" equals -1
@@ -221,8 +182,10 @@ extension ViewController: NSTableViewDelegate {
 
         dispatchAction(action)
     }
-}
-*/
+
+ }
+
+// TODO: support employee name and skills edits
 
 /*
 extension ViewController: EmployeeItemChangeDelegate {
@@ -248,9 +211,7 @@ extension ViewController: EmployeeItemChangeDelegate {
         dispatchAction(EmployeeAction.rename(employeeID, name: name))
     }
 }
-*/
 
-/*
 extension ViewController: EmployeeItemEditDelegate {
 
     func editItem(row: Int, insertText text: String?) {
@@ -268,4 +229,4 @@ extension ViewController: EmployeeItemEditDelegate {
         editor.insertText(text)
     }
 }
- */
+*/

@@ -31,6 +31,7 @@
 		69AE63B923FCAB1000BF70EA /* SelectionReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63B823FCAB1000BF70EA /* SelectionReducer.swift */; };
 		69AE63BB23FCAB4000BF70EA /* SelectionActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63BA23FCAB4000BF70EA /* SelectionActions.swift */; };
 		69AE63BD23FCAC6400BF70EA /* RemoveIdempotentActionsMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63BC23FCAC6400BF70EA /* RemoveIdempotentActionsMiddleware.swift */; };
+		69AE63C124007B3D00BF70EA /* EmployeeTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63C024007B3D00BF70EA /* EmployeeTableDataSource.swift */; };
 		69F3509A23EA0A7100F61437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3509923EA0A7100F61437 /* AppDelegate.swift */; };
 		69F3509E23EA0A7100F61437 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3509D23EA0A7100F61437 /* Document.swift */; };
 		69F350A023EA0A7300F61437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69F3509F23EA0A7300F61437 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		69AE63B823FCAB1000BF70EA /* SelectionReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionReducer.swift; sourceTree = "<group>"; };
 		69AE63BA23FCAB4000BF70EA /* SelectionActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionActions.swift; sourceTree = "<group>"; };
 		69AE63BC23FCAC6400BF70EA /* RemoveIdempotentActionsMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveIdempotentActionsMiddleware.swift; sourceTree = "<group>"; };
+		69AE63C024007B3D00BF70EA /* EmployeeTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableDataSource.swift; sourceTree = "<group>"; };
 		69F3509623EA0A7100F61437 /* reswift-jobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "reswift-jobs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F3509923EA0A7100F61437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69F3509D23EA0A7100F61437 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		69AE637823F0E6C600BF70EA /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				69AE63C024007B3D00BF70EA /* EmployeeTableDataSource.swift */,
 				69AE638B23F0ED2900BF70EA /* EmployeeViewModel.swift */,
 				69AE638123F0E9FD00BF70EA /* JobPresenter.swift */,
 				69AE638923F0ED1600BF70EA /* JobViewModel.swift */,
@@ -287,6 +290,7 @@
 				69AE63AB23FB75EC00BF70EA /* JobActions.swift in Sources */,
 				69AE63B423FB8A5400BF70EA /* UndoCommand.swift in Sources */,
 				69AE638C23F0ED2900BF70EA /* EmployeeViewModel.swift in Sources */,
+				69AE63C124007B3D00BF70EA /* EmployeeTableDataSource.swift in Sources */,
 				69AE639223F0F3A800BF70EA /* EmployeeID.swift in Sources */,
 				69AE639D23FA0AA400BF70EA /* LoggingMiddleware.swift in Sources */,
 				69AE63AD23FB760700BF70EA /* EmployeeReducer.swift in Sources */,

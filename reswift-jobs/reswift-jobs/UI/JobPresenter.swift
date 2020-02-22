@@ -25,6 +25,8 @@ extension EmployeeViewModel {
 
     init(employee: Employee) {
         self.identifier = employee.employeeID.identifier
+        self.name = employee.name
+        self.skills = employee.skills
     }
 }
 
