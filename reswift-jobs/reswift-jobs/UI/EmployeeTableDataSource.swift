@@ -40,16 +40,4 @@ extension EmployeeTableDataSource: EmployeeTableDataSourceType {
     func updateContents(jobViewModel viewModel: JobViewModel) {
         self.viewModel = viewModel
     }
-/*
-    func employeeCellView(tableView: NSOutlineView, row: Int, owner: AnyObject) -> EmployeeCellView? {
-
-        guard let cellViewModel = viewModel?.items[row],
-            let cellView = EmployeeCellView.make(tableView: tableView, owner: owner)
-            else { return nil }
-
-        cellView.showEmployee(employeeViewModel: cellViewModel)
-
-        return cellView
-    }
-*/
 }

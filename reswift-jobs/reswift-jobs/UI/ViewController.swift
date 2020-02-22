@@ -94,7 +94,6 @@ protocol EmployeeTableDataSourceType {
     var employeeCount: Int { get }
 
     func updateContents(jobViewModel viewModel: JobViewModel)
-//    func employeeCellView(tableView: NSOutlineView, row: Int, owner: AnyObject) -> EmployeeCellView?
 }
 
 extension EmployeeTableDataSourceType where Self: NSOutlineViewDataSource {
@@ -186,6 +185,8 @@ extension ViewController: DisplaysJob {
 
  }
 
+// TODO: support employee name and skills edits
+
 /*
 extension ViewController: EmployeeItemChangeDelegate {
 
@@ -210,9 +211,7 @@ extension ViewController: EmployeeItemChangeDelegate {
         dispatchAction(EmployeeAction.rename(employeeID, name: name))
     }
 }
-*/
 
-/*
 extension ViewController: EmployeeItemEditDelegate {
 
     func editItem(row: Int, insertText text: String?) {
@@ -230,4 +229,4 @@ extension ViewController: EmployeeItemEditDelegate {
         editor.insertText(text)
     }
 }
- */
+*/
