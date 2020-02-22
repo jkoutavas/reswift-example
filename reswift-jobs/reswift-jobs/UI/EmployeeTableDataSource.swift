@@ -16,11 +16,19 @@ class EmployeeTableDataSource: NSObject {
 extension EmployeeTableDataSource: NSOutlineViewDataSource {
 
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        // TODO
+        return employeeCount
+    }
+
+    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
+        return false
     }
 
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        // TODO
+        guard let viewModel = viewModel?.items[index] else {
+            return EmployeeViewModel(identifier:"unknown", name:"unknown", skills:"unknown")
+        }
+           
+        return viewModel
     }
 }
 
@@ -30,10 +38,9 @@ extension EmployeeTableDataSource: EmployeeTableDataSourceType {
     var employeeCount: Int { return viewModel?.itemCount ?? 0 }
     
     func updateContents(jobViewModel viewModel: JobViewModel) {
-
         self.viewModel = viewModel
     }
-
+/*
     func employeeCellView(tableView: NSOutlineView, row: Int, owner: AnyObject) -> EmployeeCellView? {
 
         guard let cellViewModel = viewModel?.items[row],
@@ -44,4 +51,5 @@ extension EmployeeTableDataSource: EmployeeTableDataSourceType {
 
         return cellView
     }
+*/
 }

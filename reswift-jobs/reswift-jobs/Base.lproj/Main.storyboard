@@ -792,10 +792,6 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
-                                            <connections>
-                                                <outlet property="dataSource" destination="5gI-5U-AMq" id="aAD-Nl-RSI"/>
-                                                <outlet property="delegate" destination="5gI-5U-AMq" id="jLc-II-I8I"/>
-                                            </connections>
                                         </outlineView>
                                     </subviews>
                                 </clipView>
