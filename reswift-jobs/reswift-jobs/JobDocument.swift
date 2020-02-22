@@ -1,5 +1,5 @@
 //
-//  Document.swift
+//  JobDocument.swift
 //  reswift-jobs
 //
 //  Created by Jay Koutavas on 2/4/20.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class Document: NSDocument {
+class JobDocument: NSDocument {
 
     // MARK: - Initialization
 
@@ -25,11 +25,11 @@ class Document: NSDocument {
     override func makeWindowControllers() {
         // Returns the Storyboard that contains your Document window.
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as! NSWindowController
+        let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("JobWindowController")) as! JobWindowController
         self.addWindowController(windowController)
         
         // Set the view controller's represented object as your document.
-        if let contentVC = windowController.contentViewController as? ViewController {
+        if let contentVC = windowController.contentViewController as? JobViewController {
             self.presenter = JobPresenter(view: contentVC)
             contentVC.store = self.store
             contentVC.delegate = self
@@ -50,13 +50,13 @@ class Document: NSDocument {
     }
 }
 
-extension Document: JobViewControllerDelegate {
-    func jobViewControllerDidLoad(_ controller: ViewController) {
+extension JobDocument: JobViewControllerDelegate {
+    func jobViewControllerDidLoad(_ controller: JobViewController) {
 
         store.subscribe(presenter)
     }
 
-    func jobViewControllerWillClose(_ controller: ViewController) {
+    func jobViewControllerWillClose(_ controller: JobViewController) {
 
         store.unsubscribe(presenter)
     }

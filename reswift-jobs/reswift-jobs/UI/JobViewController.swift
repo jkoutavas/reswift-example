@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  JobViewController.swift
 //  reswift-jobs
 //
 //  Created by Jay Koutavas on 2/4/20.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class JobViewController: NSViewController {
 
     @IBOutlet var tableView: NSOutlineView!
     @IBOutlet var jobTitleEdit: NSTextField!
@@ -81,8 +81,8 @@ class ViewController: NSViewController {
 
 protocol JobViewControllerDelegate: class {
 
-    func jobViewControllerDidLoad(_ controller: ViewController)
-    func jobViewControllerWillClose(_ controller: ViewController)
+    func jobViewControllerDidLoad(_ controller: JobViewController)
+    func jobViewControllerWillClose(_ controller: JobViewController)
 }
 
 protocol EmployeeTableDataSourceType {
@@ -110,7 +110,7 @@ protocol DisplaysJob {
     func displayJob(jobViewModel viewModel: JobViewModel)
 }
 
-extension ViewController: DisplaysJob {
+extension JobViewController: DisplaysJob {
 
     func displayJob(jobViewModel viewModel: JobViewModel) {
 
@@ -146,7 +146,7 @@ extension ViewController: DisplaysJob {
 
 // MARK: Cell creation & event handling
 
- extension ViewController: NSOutlineViewDelegate {
+ extension JobViewController: NSOutlineViewDelegate {
 
     func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool {
         return true
@@ -188,7 +188,7 @@ extension ViewController: DisplaysJob {
 // TODO: support employee name and skills edits
 
 /*
-extension ViewController: EmployeeItemChangeDelegate {
+extension JobViewController: EmployeeItemChangeDelegate {
 
     func employeeItem(identifier: String, didChangeChecked checked: Bool) {
 
@@ -212,7 +212,7 @@ extension ViewController: EmployeeItemChangeDelegate {
     }
 }
 
-extension ViewController: EmployeeItemEditDelegate {
+extension JobViewController: EmployeeItemEditDelegate {
 
     func editItem(row: Int, insertText text: String?) {
 

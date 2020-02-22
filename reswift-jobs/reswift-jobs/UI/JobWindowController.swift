@@ -1,5 +1,5 @@
 //
-//  WindowController.swift
+//  JobWindowController.swift
 //  reswift-jobs
 //
 //  Created by Jay Koutavas on 2/9/20.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class WindowController: NSWindowController {
+class JobWindowController: NSWindowController {
     override func windowDidLoad() {
         let titlebarController = self.storyboard?.instantiateController(withIdentifier:
             NSStoryboard.SceneIdentifier("titlebarViewController"))
