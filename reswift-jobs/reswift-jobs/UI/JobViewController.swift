@@ -60,7 +60,7 @@ class JobViewController: NSViewController {
        }
    }
 
-   @IBAction func changeTitle(_ sender: AnyObject) {
+    @IBAction func changeTitle(_ sender: AnyObject) {
 
        guard let textField = sender as? NSTextField else { return }
 

@@ -27,6 +27,7 @@ class JobDocument: NSDocument {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("JobWindowController")) as! JobWindowController
         self.addWindowController(windowController)
+        windowController.store = self.store
         
         // Set the view controller's represented object as your document.
         if let contentVC = windowController.contentViewController as? JobViewController {

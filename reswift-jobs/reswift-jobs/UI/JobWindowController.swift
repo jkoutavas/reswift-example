@@ -9,11 +9,22 @@
 import Cocoa
 
 class JobWindowController: NSWindowController {
+
+    var titlebarController: JobWindowTitleBarController?
+    
+    var store: JobStore? {
+
+        didSet {
+            titlebarController?.store = store
+        }
+    }
+       
     override func windowDidLoad() {
-        let titlebarController = self.storyboard?.instantiateController(withIdentifier:
+        titlebarController = self.storyboard?.instantiateController(withIdentifier:
             NSStoryboard.SceneIdentifier("titlebarViewController"))
-            as? NSTitlebarAccessoryViewController
+            as? JobWindowTitleBarController
         titlebarController?.layoutAttribute = .right
+
         // layoutAttribute has to be set before added to window
         self.window?.addTitlebarAccessoryViewController(titlebarController!)
     }
