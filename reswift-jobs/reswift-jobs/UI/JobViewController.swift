@@ -66,12 +66,7 @@ class JobViewController: NSViewController {
 
        let newName = textField.stringValue
 
-       dispatchAction(RenameJobAction(renameTo: newName))
-   }
-
-   fileprivate func dispatchAction(_ action: Action) {
-
-       store?.dispatch(action)
+       store?.dispatch(RenameJobAction(renameTo: newName))
    }
 
    @objc func viewWillClose(_ notification: Notification) {
@@ -180,7 +175,7 @@ extension JobViewController: DisplaysJob {
             return .select(row: tableView.selectedRow)
         }()
 
-        dispatchAction(action)
+        store?.dispatch(action)
     }
 
  }
@@ -199,7 +194,7 @@ extension JobViewController: EmployeeItemChangeDelegate {
         let action: EmployeeAction = {
          }()
 
-        dispatchAction(action)
+        store?.dispatch(action)
 
     }
 
@@ -208,7 +203,7 @@ extension JobViewController: EmployeeItemChangeDelegate {
         guard let employeeID = EmployeeID(identifier: identifier)
             else { preconditionFailure("Invalid Employee item identifier \(identifier).") }
 
-        dispatchAction(EmployeeAction.rename(employeeID, name: name))
+        store?.dispatch(EmployeeAction.rename(employeeID, name: name))
     }
 }
 
