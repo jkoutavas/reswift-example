@@ -35,48 +35,43 @@ class JobViewController: NSViewController {
         didLoad = true
     }
 
-   /// Changing the `delegate` while the window is displayed
-   /// calls the `jobViewControllerDidLoad` callback
-   /// on the new `delegate`.
-   weak var delegate: JobViewControllerDelegate? {
-       didSet {
-           guard didLoad else { return }
+    /// Changing the `delegate` while the window is displayed
+    /// calls the `jobViewControllerDidLoad` callback
+    /// on the new `delegate`.
+    weak var delegate: JobViewControllerDelegate? {
+        didSet {
+            guard didLoad else { return }
 
-           delegate?.jobViewControllerDidLoad(self)
-       }
-   }
+            delegate?.jobViewControllerDidLoad(self)
+        }
+    }
    
-   var dataSource: EmployeeTableDataSourceType = EmployeeTableDataSource() {
-       didSet {
-           tableView.dataSource = dataSource.tableDataSource
+    var dataSource: EmployeeTableDataSourceType = EmployeeTableDataSource() {
+        didSet {
+            tableView.dataSource = dataSource.tableDataSource
 //           keyboardEventHandler?.dataSource = dataSource
        }
    }
 
-   var store: JobStore? {
+    var store: JobStore? {
 
-       didSet {
+        didSet {
 //           keyboardEventHandler?.store = store
        }
    }
 
-   @IBAction func changeTitle(_ sender: AnyObject) {
+    @IBAction func changeTitle(_ sender: AnyObject) {
 
-       guard let textField = sender as? NSTextField else { return }
+        guard let textField = sender as? NSTextField else { return }
 
-       let newName = textField.stringValue
+        let newName = textField.stringValue
 
-       dispatchAction(RenameJobAction(renameTo: newName))
-   }
+        store?.dispatch(RenameJobAction(renameTo: newName))
+    }
 
-   fileprivate func dispatchAction(_ action: Action) {
-
-       store?.dispatch(action)
-   }
-
-   @objc func viewWillClose(_ notification: Notification) {
-       delegate?.jobViewControllerWillClose(self)
-   }
+    @objc func viewWillClose(_ notification: Notification) {
+        delegate?.jobViewControllerWillClose(self)
+    }
 }
 
 protocol JobViewControllerDelegate: class {
@@ -180,7 +175,7 @@ extension JobViewController: DisplaysJob {
             return .select(row: tableView.selectedRow)
         }()
 
-        dispatchAction(action)
+        store?.dispatch(action)
     }
 
  }
@@ -199,7 +194,7 @@ extension JobViewController: EmployeeItemChangeDelegate {
         let action: EmployeeAction = {
          }()
 
-        dispatchAction(action)
+        store?.dispatch(action)
 
     }
 
@@ -208,7 +203,7 @@ extension JobViewController: EmployeeItemChangeDelegate {
         guard let employeeID = EmployeeID(identifier: identifier)
             else { preconditionFailure("Invalid Employee item identifier \(identifier).") }
 
-        dispatchAction(EmployeeAction.rename(employeeID, name: name))
+        store?.dispatch(EmployeeAction.rename(employeeID, name: name))
     }
 }
 

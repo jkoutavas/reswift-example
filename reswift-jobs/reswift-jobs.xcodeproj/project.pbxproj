@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		69723320240183CA00E91FBA /* JobWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6972331F240183CA00E91FBA /* JobWindowController.swift */; };
+		697233222402B27700E91FBA /* JobWindowTitleBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697233212402B27700E91FBA /* JobWindowTitleBarController.swift */; };
 		69AE637723F0E58900BF70EA /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE637523F0E58900BF70EA /* Employee.swift */; };
 		69AE637C23F0E6C700BF70EA /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE637923F0E6C600BF70EA /* JobViewController.swift */; };
 		69AE638323F0E9FD00BF70EA /* JobPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE638123F0E9FD00BF70EA /* JobPresenter.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		6972331F240183CA00E91FBA /* JobWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobWindowController.swift; sourceTree = "<group>"; };
+		697233212402B27700E91FBA /* JobWindowTitleBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobWindowTitleBarController.swift; sourceTree = "<group>"; };
 		69AE637523F0E58900BF70EA /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		69AE637923F0E6C600BF70EA /* JobViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
 		69AE638123F0E9FD00BF70EA /* JobPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobPresenter.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				69AE637923F0E6C600BF70EA /* JobViewController.swift */,
 				69AE638923F0ED1600BF70EA /* JobViewModel.swift */,
 				6972331F240183CA00E91FBA /* JobWindowController.swift */,
+				697233212402B27700E91FBA /* JobWindowTitleBarController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				69AE63BD23FCAC6400BF70EA /* RemoveIdempotentActionsMiddleware.swift in Sources */,
 				69AE63B123FB7C9F00BF70EA /* UndoMiddleware.swift in Sources */,
 				69AE638323F0E9FD00BF70EA /* JobPresenter.swift in Sources */,
+				697233222402B27700E91FBA /* JobWindowTitleBarController.swift in Sources */,
 				69AE63AB23FB75EC00BF70EA /* JobActions.swift in Sources */,
 				69723320240183CA00E91FBA /* JobWindowController.swift in Sources */,
 				69AE63B423FB8A5400BF70EA /* UndoCommand.swift in Sources */,

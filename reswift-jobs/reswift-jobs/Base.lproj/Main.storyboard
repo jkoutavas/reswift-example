@@ -842,22 +842,22 @@
             </objects>
             <point key="canvasLocation" x="-30864" y="-27734"/>
         </scene>
-        <!--Titlebar Accessory View Controller-->
+        <!--Job Window Title Bar Controller-->
         <scene sceneID="pL2-Qn-igo">
             <objects>
-                <viewController storyboardIdentifier="titlebarViewController" id="SDH-AL-SrX" customClass="NSTitlebarAccessoryViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="titlebarViewController" id="SDH-AL-SrX" customClass="JobWindowTitleBarController" customModule="reswift_jobs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="qoK-RX-w52">
                         <rect key="frame" x="0.0" y="0.0" width="119" height="34"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Di-59-05C">
-                                <rect key="frame" x="80" y="5" width="24" height="23"/>
+                                <rect key="frame" x="80.5" y="5" width="23" height="23"/>
                                 <buttonCell key="cell" type="roundTextured" title="+" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PpS-Qw-Q8n">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="showWorldSetting:" target="Jos-2b-X6X" id="VYS-9I-YDD"/>
+                                    <action selector="addEmployee:" target="SDH-AL-SrX" id="Ry6-XN-zoQ"/>
                                 </connections>
                             </button>
                         </subviews>

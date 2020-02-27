@@ -1,6 +1,6 @@
 # reswift-example #
 
-*README last updated Febuary 21st, 2020*
+*README last updated Febuary 23rd, 2020*
 
 ## Introduction
 
@@ -25,11 +25,12 @@ I'm just getting underway on the project, here's the laundry list of things I wa
 [x] Able to display employees assigned to a job
 [ ] Able to edit, undo/redo employee names and skills
 [ ] Able to re-order the list of employees with undo/redo
-[ ] Able to add an employee with undo/redo
+[x] Able to add an employee with undo/redo
 [ ] Able to delete an employee with undo/redo
 [ ] Able to duplicate an employee with undo/redo
 [ ] Able to move an employee from one job to another witn undo/redo
 [ ] Job document load and save
+[ ] Unit tests
 ```
 
 ### Things I'm considering changing ###

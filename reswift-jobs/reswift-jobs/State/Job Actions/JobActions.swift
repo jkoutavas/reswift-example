@@ -50,7 +50,7 @@ struct ReplaceJobAction: JobAction {
     }
 }
 
-struct InsertTaskAction: UndoableAction, JobAction {
+struct InsertEmployeeAction: UndoableAction, JobAction {
 
     let employee: Employee
     let index: Int
@@ -63,15 +63,15 @@ struct InsertTaskAction: UndoableAction, JobAction {
     }
 
     var isUndoable: Bool { return true }
-    var name: String { return "Append Task" }
+    var name: String { return "Add Employee" }
 
     func inverse(context: UndoActionContext) -> UndoableAction? {
 
-        return RemoveTaskAction(employeeID: employee.employeeID)
+        return RemoveEmployeeAction(employeeID: employee.employeeID)
     }
 }
 
-struct RemoveTaskAction: UndoableAction, JobAction {
+struct RemoveEmployeeAction: UndoableAction, JobAction {
 
     let employeeID: EmployeeID
 
@@ -83,12 +83,12 @@ struct RemoveTaskAction: UndoableAction, JobAction {
     }
 
     var isUndoable: Bool { return true }
-    var name: String { return "Remove Task" }
+    var name: String { return "Remove Employee" }
 
     func inverse(context: UndoActionContext) -> UndoableAction? {
 
         guard let removingEmployee = context.jobIn(employeeID: employeeID) else { return nil }
 
-        return InsertTaskAction(employee: removingEmployee.employee, index: removingEmployee.index)
+        return InsertEmployeeAction(employee: removingEmployee.employee, index: removingEmployee.index)
     }
 }
