@@ -13,8 +13,12 @@ class JobWindowTitleBarController: NSTitlebarAccessoryViewController {
     var store: JobStore?
     
     @IBAction func addEmployee(_ sender: AnyObject) {
-        let targetRow = store?.state.job.items.count ?? 0
-        store?.dispatch(InsertEmployeeAction(employee: Employee.empty, index: targetRow))
-        store?.dispatch(SelectionAction.select(row: targetRow))
+        guard let store = store else { return }
+        let targetRow = store.state.job.items.count
+        store.dispatch(InsertEmployeeAction(employee: Employee.empty, index: targetRow))
+        
+        // TODO: One could easily argue that selection is not an action appropriate to an add button.
+        // It makes an assumption about UI rendering. Consider moving the selection to elsewhere.
+        store.dispatch(SelectionAction.select(row: targetRow))
     }
 }
