@@ -9,7 +9,7 @@
 import Foundation
 
 struct Employee {
-    static var empty: Employee { return Employee(name: "New Employee", skills:"(skills}") }
+    static var empty: Employee { return Employee(name: "New Employee", skills:"{skills}") }
 
     let employeeID: EmployeeID
     var name: String
