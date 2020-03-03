@@ -10,30 +10,10 @@ import Cocoa
 
 class JobViewController: NSViewController {
 
-    @IBOutlet var tableView: NSOutlineView!
+    @IBOutlet var tableView: NSTableView!
     @IBOutlet var jobTitleEdit: NSTextField!
-    @IBOutlet var nameColumn: NSTableColumn!
-    @IBOutlet var skillsColumn: NSTableColumn!
 
 //    @IBOutlet var keyboardEventHandler: KeyboardEventHandler?
-
-    fileprivate var didLoad = false {
-        didSet {
-            delegate?.jobViewControllerDidLoad(self)
-        }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tableView.dataSource = self.dataSource.tableDataSource
-        tableView.delegate = self
-        
-//        keyboardEventHandler?.dataSource = self.dataSource
-//        keyboardEventHandler?.store = self.store
-        
-        didLoad = true
-    }
 
     /// Changing the `delegate` while the window is displayed
     /// calls the `jobViewControllerDidLoad` callback
@@ -56,9 +36,29 @@ class JobViewController: NSViewController {
     var store: JobStore? {
 
         didSet {
+            dataSource.setStore(jobStore: store)
 //           keyboardEventHandler?.store = store
        }
    }
+       
+    fileprivate var didLoad = false {
+        didSet {
+            delegate?.jobViewControllerDidLoad(self)
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.dataSource = self.dataSource.tableDataSource
+        tableView.delegate = self
+        tableView.registerForDraggedTypes([.employee, .tableViewIndex])
+        
+//        keyboardEventHandler?.dataSource = self.dataSource
+//        keyboardEventHandler?.store = self.store
+        
+        didLoad = true
+    }
 
     @IBAction func changeTitle(_ sender: AnyObject) {
 
@@ -82,18 +82,21 @@ protocol JobViewControllerDelegate: class {
 
 protocol EmployeeTableDataSourceType {
 
-    var tableDataSource: NSOutlineViewDataSource { get }
+    var tableDataSource: NSTableViewDataSource { get }
 
     var selectedRow: Int? { get }
     var selectedEmployee: EmployeeViewModel? { get }
     var employeeCount: Int { get }
 
     func updateContents(jobViewModel viewModel: JobViewModel)
+    func getStore() -> JobStore?
+    func setStore(jobStore: JobStore?)
+    func employeeCellView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?
 }
 
-extension EmployeeTableDataSourceType where Self: NSOutlineViewDataSource {
+extension EmployeeTableDataSourceType where Self: NSTableViewDataSource {
 
-    var tableDataSource: NSOutlineViewDataSource {
+    var tableDataSource: NSTableViewDataSource {
         return self
     }
 }
@@ -141,32 +144,13 @@ extension JobViewController: DisplaysJob {
 
 // MARK: Cell creation & event handling
 
- extension JobViewController: NSOutlineViewDelegate {
+ extension JobViewController: NSTableViewDelegate {
 
-    func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool {
-        return true
-    }
-
-    func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        guard let cell = outlineView.makeView(withIdentifier: tableColumn!.identifier, owner: self)
-            as? NSTableCellView else { return nil }
-        guard let textField = cell.textField else { return nil }
-
-        if let viewModel = item as? EmployeeViewModel {
-            switch tableColumn {
-            case nameColumn:
-                textField.stringValue = viewModel.name
-            case skillsColumn:
-                textField.stringValue = viewModel.skills
-             default:
-                print("Skipping \((tableColumn?.identifier)!.rawValue) column")
-            }
-        }
-
-        return cell
+     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        return dataSource.employeeCellView(tableView, viewFor: tableColumn, row: row)
     }
     
-    func outlineViewSelectionDidChange(_ notification: Notification) {
+    func tableViewSelectionDidChange(_ notification: Notification) {
 
         let action: SelectionAction = {
             // "None" equals -1
@@ -177,7 +161,13 @@ extension JobViewController: DisplaysJob {
 
         store?.dispatch(action)
     }
-
+/*
+    // Due to a bug with NSTableView, this method has to be implemented to get
+    // the draggingDestinationFeedbackStyle.gap animation to look right.
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 30
+    }
+*/
  }
 
 // TODO: support employee name and skills edits

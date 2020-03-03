@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		69723320240183CA00E91FBA /* JobWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6972331F240183CA00E91FBA /* JobWindowController.swift */; };
 		697233222402B27700E91FBA /* JobWindowTitleBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697233212402B27700E91FBA /* JobWindowTitleBarController.swift */; };
+		697233242405F75000E91FBA /* EmployeePasteboardWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697233232405F75000E91FBA /* EmployeePasteboardWriter.swift */; };
+		69723331240C342800E91FBA /* ArrayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69723330240C342800E91FBA /* ArrayUtil.swift */; };
+		69A6E1D9240CAB7A00D98AC7 /* EmployeeTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A6E1D8240CAB7A00D98AC7 /* EmployeeTableDataSource.swift */; };
 		69AE637723F0E58900BF70EA /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE637523F0E58900BF70EA /* Employee.swift */; };
 		69AE637C23F0E6C700BF70EA /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE637923F0E6C600BF70EA /* JobViewController.swift */; };
 		69AE638323F0E9FD00BF70EA /* JobPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE638123F0E9FD00BF70EA /* JobPresenter.swift */; };
@@ -32,7 +35,6 @@
 		69AE63B923FCAB1000BF70EA /* SelectionReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63B823FCAB1000BF70EA /* SelectionReducer.swift */; };
 		69AE63BB23FCAB4000BF70EA /* SelectionActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63BA23FCAB4000BF70EA /* SelectionActions.swift */; };
 		69AE63BD23FCAC6400BF70EA /* RemoveIdempotentActionsMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63BC23FCAC6400BF70EA /* RemoveIdempotentActionsMiddleware.swift */; };
-		69AE63C124007B3D00BF70EA /* EmployeeTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE63C024007B3D00BF70EA /* EmployeeTableDataSource.swift */; };
 		69F3509A23EA0A7100F61437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3509923EA0A7100F61437 /* AppDelegate.swift */; };
 		69F3509E23EA0A7100F61437 /* JobDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F3509D23EA0A7100F61437 /* JobDocument.swift */; };
 		69F350A023EA0A7300F61437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69F3509F23EA0A7300F61437 /* Assets.xcassets */; };
@@ -43,6 +45,9 @@
 /* Begin PBXFileReference section */
 		6972331F240183CA00E91FBA /* JobWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobWindowController.swift; sourceTree = "<group>"; };
 		697233212402B27700E91FBA /* JobWindowTitleBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobWindowTitleBarController.swift; sourceTree = "<group>"; };
+		697233232405F75000E91FBA /* EmployeePasteboardWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeePasteboardWriter.swift; sourceTree = "<group>"; };
+		69723330240C342800E91FBA /* ArrayUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtil.swift; sourceTree = "<group>"; };
+		69A6E1D8240CAB7A00D98AC7 /* EmployeeTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeTableDataSource.swift; sourceTree = "<group>"; };
 		69AE637523F0E58900BF70EA /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		69AE637923F0E6C600BF70EA /* JobViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
 		69AE638123F0E9FD00BF70EA /* JobPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobPresenter.swift; sourceTree = "<group>"; };
@@ -66,7 +71,6 @@
 		69AE63B823FCAB1000BF70EA /* SelectionReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionReducer.swift; sourceTree = "<group>"; };
 		69AE63BA23FCAB4000BF70EA /* SelectionActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionActions.swift; sourceTree = "<group>"; };
 		69AE63BC23FCAC6400BF70EA /* RemoveIdempotentActionsMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveIdempotentActionsMiddleware.swift; sourceTree = "<group>"; };
-		69AE63C024007B3D00BF70EA /* EmployeeTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableDataSource.swift; sourceTree = "<group>"; };
 		69F3509623EA0A7100F61437 /* reswift-jobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "reswift-jobs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F3509923EA0A7100F61437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69F3509D23EA0A7100F61437 /* JobDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDocument.swift; sourceTree = "<group>"; };
@@ -88,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6972332F240C33FE00E91FBA /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				69723330240C342800E91FBA /* ArrayUtil.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		69AE637423F0E58900BF70EA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,7 +128,8 @@
 		69AE637823F0E6C600BF70EA /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				69AE63C024007B3D00BF70EA /* EmployeeTableDataSource.swift */,
+				697233232405F75000E91FBA /* EmployeePasteboardWriter.swift */,
+				69A6E1D8240CAB7A00D98AC7 /* EmployeeTableDataSource.swift */,
 				69AE638B23F0ED2900BF70EA /* EmployeeViewModel.swift */,
 				69AE638123F0E9FD00BF70EA /* JobPresenter.swift */,
 				69AE637923F0E6C600BF70EA /* JobViewController.swift */,
@@ -197,6 +210,7 @@
 				69AE637423F0E58900BF70EA /* Model */,
 				69AE637623F0E58900BF70EA /* State */,
 				69AE637823F0E6C600BF70EA /* UI */,
+				6972332F240C33FE00E91FBA /* Util */,
 				69F3509923EA0A7100F61437 /* AppDelegate.swift */,
 				69F3509D23EA0A7100F61437 /* JobDocument.swift */,
 				69F3509F23EA0A7300F61437 /* Assets.xcassets */,
@@ -284,18 +298,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				69AE637723F0E58900BF70EA /* Employee.swift in Sources */,
+				69723331240C342800E91FBA /* ArrayUtil.swift in Sources */,
 				69AE639423F203D700BF70EA /* JobStore.swift in Sources */,
 				69AE639923F4A95E00BF70EA /* NotUndoable.swift in Sources */,
 				69AE63BD23FCAC6400BF70EA /* RemoveIdempotentActionsMiddleware.swift in Sources */,
 				69AE63B123FB7C9F00BF70EA /* UndoMiddleware.swift in Sources */,
 				69AE638323F0E9FD00BF70EA /* JobPresenter.swift in Sources */,
+				69A6E1D9240CAB7A00D98AC7 /* EmployeeTableDataSource.swift in Sources */,
 				697233222402B27700E91FBA /* JobWindowTitleBarController.swift in Sources */,
 				69AE63AB23FB75EC00BF70EA /* JobActions.swift in Sources */,
 				69723320240183CA00E91FBA /* JobWindowController.swift in Sources */,
 				69AE63B423FB8A5400BF70EA /* UndoCommand.swift in Sources */,
 				69AE638C23F0ED2900BF70EA /* EmployeeViewModel.swift in Sources */,
-				69AE63C124007B3D00BF70EA /* EmployeeTableDataSource.swift in Sources */,
 				69AE639223F0F3A800BF70EA /* EmployeeID.swift in Sources */,
+				697233242405F75000E91FBA /* EmployeePasteboardWriter.swift in Sources */,
 				69AE639D23FA0AA400BF70EA /* LoggingMiddleware.swift in Sources */,
 				69AE63AD23FB760700BF70EA /* EmployeeReducer.swift in Sources */,
 				69AE639723F4A93400BF70EA /* Undoable.swift in Sources */,
