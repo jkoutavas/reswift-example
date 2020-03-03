@@ -144,9 +144,9 @@ extension JobViewController: DisplaysJob {
 
 // MARK: Cell creation & event handling
 
- extension JobViewController: NSTableViewDelegate {
+extension JobViewController: NSTableViewDelegate {
 
-     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         return dataSource.employeeCellView(tableView, viewFor: tableColumn, row: row)
     }
     
@@ -161,14 +161,7 @@ extension JobViewController: DisplaysJob {
 
         store?.dispatch(action)
     }
-/*
-    // Due to a bug with NSTableView, this method has to be implemented to get
-    // the draggingDestinationFeedbackStyle.gap animation to look right.
-    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return 30
-    }
-*/
- }
+}
 
 // TODO: support employee name and skills edits
 
