@@ -38,6 +38,10 @@ struct Job {
         }
     }
     
+    mutating func moveItems(from: Int, to: Int) {
+        items.move(from: from, to: to)
+    }
+    
     func indexOf(employeeID: EmployeeID) -> Int? {
 
         return items.firstIndex(where: { $0.employeeID == employeeID })
