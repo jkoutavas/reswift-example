@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Job {
+struct Job : Codable {
     var title: String?
     var items: [Employee]
 

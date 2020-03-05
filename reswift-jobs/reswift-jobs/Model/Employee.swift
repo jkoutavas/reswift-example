@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Employee {
+struct Employee : Codable {
     static var empty: Employee { return Employee(name: "New Employee", skills:["skill1", "skill2"]) }
 
     let employeeID: EmployeeID
