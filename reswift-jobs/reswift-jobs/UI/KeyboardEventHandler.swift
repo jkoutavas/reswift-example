@@ -48,22 +48,23 @@ class KeyboardEventHandler: PatchingResponder {
         store?.dispatch(SelectionAction.select(row: newRow))
     }
 
-
     // MARK: Editing
+    
+    // TODO
 
     // MARK: Removal
 
     override func deleteForward(_ sender: Any?) {
 
-        removeSelectedTask()
+        removeSelectedEmployee()
     }
 
     override func deleteBackward(_ sender: Any?) {
         
-        removeSelectedTask()
+        removeSelectedEmployee()
     }
     
-    fileprivate func removeSelectedTask() {
+    fileprivate func removeSelectedEmployee() {
         
         guard let selectedEmployee = dataSource.selectedEmployee,
             let employeeID = EmployeeID(identifier: selectedEmployee.identifier)
