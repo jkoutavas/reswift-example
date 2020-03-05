@@ -18,6 +18,6 @@ struct EmployeeViewModel {
     let identifier: String
     
     let name: String
-    let skills: String
+    let skills: [String]
 }
 

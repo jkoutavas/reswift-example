@@ -13,7 +13,7 @@ class EmployeeTableDataSource: NSObject {
     var viewModel: JobViewModel?
     var store: JobStore?
 
-    let emptyEmployee = EmployeeViewModel(identifier:"unknown", name:"unknown", skills:"unknown")
+    let emptyEmployee = EmployeeViewModel(identifier:"unknown", name:"unknown", skills:[])
 }
 
 extension EmployeeTableDataSource: NSTableViewDataSource {
@@ -86,7 +86,7 @@ extension EmployeeTableDataSource: EmployeeTableDataSourceType {
             if tableColumn == tableView.tableColumns[0] {
                 textField.stringValue = employee.name
             } else {
-                textField.stringValue = employee.skills
+                textField.stringValue = employee.skills.joined(separator:", ")
             }
         }
         
