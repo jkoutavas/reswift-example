@@ -739,7 +739,7 @@
                                     <rect key="frame" x="1" y="0.0" width="478" height="234"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="LOw-K2-I7c" viewBased="YES" id="q5c-mh-xz6">
+                                        <tableView verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="LOw-K2-I7c" viewBased="YES" id="q5c-mh-xz6" customClass="EmployeeTableView" customModule="reswift_jobs" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="478" height="209"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -833,10 +833,16 @@
                     </view>
                     <connections>
                         <outlet property="jobTitleEdit" destination="lZ8-E5-gno" id="JMB-jd-9Ie"/>
+                        <outlet property="keyboardEventHandler" destination="Ias-Kx-8Gv" id="exc-k6-uaG"/>
                         <outlet property="tableView" destination="q5c-mh-xz6" id="9nx-Oa-Wfn"/>
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Ias-Kx-8Gv" customClass="KeyboardEventHandler" customModule="reswift_jobs" customModuleProvider="target">
+                    <connections>
+                        <outlet property="referenceResponder" destination="q5c-mh-xz6" id="cMn-7K-Umx"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-30864" y="-27734"/>
         </scene>

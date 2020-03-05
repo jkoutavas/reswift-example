@@ -13,7 +13,7 @@ class JobViewController: NSViewController {
     @IBOutlet var tableView: NSTableView!
     @IBOutlet var jobTitleEdit: NSTextField!
 
-//    @IBOutlet var keyboardEventHandler: KeyboardEventHandler?
+    @IBOutlet var keyboardEventHandler: KeyboardEventHandler?
 
     /// Changing the `delegate` while the window is displayed
     /// calls the `jobViewControllerDidLoad` callback
@@ -29,7 +29,7 @@ class JobViewController: NSViewController {
     var dataSource: EmployeeTableDataSourceType = EmployeeTableDataSource() {
         didSet {
             tableView.dataSource = dataSource.tableDataSource
-//           keyboardEventHandler?.dataSource = dataSource
+            keyboardEventHandler?.dataSource = dataSource
        }
    }
 
@@ -37,7 +37,7 @@ class JobViewController: NSViewController {
 
         didSet {
             dataSource.setStore(jobStore: store)
-//           keyboardEventHandler?.store = store
+            keyboardEventHandler?.store = store
        }
    }
        
@@ -54,8 +54,8 @@ class JobViewController: NSViewController {
         tableView.delegate = self
         tableView.registerForDraggedTypes([.employee, .tableViewIndex])
         
-//        keyboardEventHandler?.dataSource = self.dataSource
-//        keyboardEventHandler?.store = self.store
+        keyboardEventHandler?.dataSource = self.dataSource
+        keyboardEventHandler?.store = self.store
         
         didLoad = true
     }

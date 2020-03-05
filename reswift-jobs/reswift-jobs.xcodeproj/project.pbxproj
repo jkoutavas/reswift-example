@@ -12,6 +12,9 @@
 		697233242405F75000E91FBA /* EmployeePasteboardWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697233232405F75000E91FBA /* EmployeePasteboardWriter.swift */; };
 		69723331240C342800E91FBA /* ArrayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69723330240C342800E91FBA /* ArrayUtil.swift */; };
 		69A6E1D9240CAB7A00D98AC7 /* EmployeeTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A6E1D8240CAB7A00D98AC7 /* EmployeeTableDataSource.swift */; };
+		69A6E1DB240EC92F00D98AC7 /* KeyboardEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A6E1DA240EC92F00D98AC7 /* KeyboardEventHandler.swift */; };
+		69A6E1DE240ECD2500D98AC7 /* EmployeeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A6E1DD240ECD2500D98AC7 /* EmployeeTableView.swift */; };
+		69A6E1E0240ECD8A00D98AC7 /* PatchingResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A6E1DF240ECD8A00D98AC7 /* PatchingResponder.swift */; };
 		69AE637723F0E58900BF70EA /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE637523F0E58900BF70EA /* Employee.swift */; };
 		69AE637C23F0E6C700BF70EA /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE637923F0E6C600BF70EA /* JobViewController.swift */; };
 		69AE638323F0E9FD00BF70EA /* JobPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AE638123F0E9FD00BF70EA /* JobPresenter.swift */; };
@@ -48,6 +51,9 @@
 		697233232405F75000E91FBA /* EmployeePasteboardWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeePasteboardWriter.swift; sourceTree = "<group>"; };
 		69723330240C342800E91FBA /* ArrayUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtil.swift; sourceTree = "<group>"; };
 		69A6E1D8240CAB7A00D98AC7 /* EmployeeTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeTableDataSource.swift; sourceTree = "<group>"; };
+		69A6E1DA240EC92F00D98AC7 /* KeyboardEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardEventHandler.swift; sourceTree = "<group>"; };
+		69A6E1DD240ECD2500D98AC7 /* EmployeeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableView.swift; sourceTree = "<group>"; };
+		69A6E1DF240ECD8A00D98AC7 /* PatchingResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchingResponder.swift; sourceTree = "<group>"; };
 		69AE637523F0E58900BF70EA /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		69AE637923F0E6C600BF70EA /* JobViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
 		69AE638123F0E9FD00BF70EA /* JobPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobPresenter.swift; sourceTree = "<group>"; };
@@ -100,6 +106,15 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		69A6E1DC240ECCFE00D98AC7 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				69A6E1DD240ECD2500D98AC7 /* EmployeeTableView.swift */,
+				69A6E1DF240ECD8A00D98AC7 /* PatchingResponder.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		69AE637423F0E58900BF70EA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +151,8 @@
 				69AE638923F0ED1600BF70EA /* JobViewModel.swift */,
 				6972331F240183CA00E91FBA /* JobWindowController.swift */,
 				697233212402B27700E91FBA /* JobWindowTitleBarController.swift */,
+				69A6E1DA240EC92F00D98AC7 /* KeyboardEventHandler.swift */,
+				69A6E1DC240ECCFE00D98AC7 /* Component */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -318,12 +335,15 @@
 				69AE638A23F0ED1600BF70EA /* JobViewModel.swift in Sources */,
 				69F3509A23EA0A7100F61437 /* AppDelegate.swift in Sources */,
 				69AE63AF23FB77ED00BF70EA /* EmployeeActions.swift in Sources */,
+				69A6E1DE240ECD2500D98AC7 /* EmployeeTableView.swift in Sources */,
 				69AE639B23F9FD3E00BF70EA /* UndoActionContext.swift in Sources */,
 				69AE63B923FCAB1000BF70EA /* SelectionReducer.swift in Sources */,
 				69AE639023F0EE8100BF70EA /* Job.swift in Sources */,
 				69AE63AA23FB75EC00BF70EA /* JobReducer.swift in Sources */,
 				69AE63BB23FCAB4000BF70EA /* SelectionActions.swift in Sources */,
+				69A6E1E0240ECD8A00D98AC7 /* PatchingResponder.swift in Sources */,
 				69AE63B723FCAAD500BF70EA /* SelectionState.swift in Sources */,
+				69A6E1DB240EC92F00D98AC7 /* KeyboardEventHandler.swift in Sources */,
 				69AE637C23F0E6C700BF70EA /* JobViewController.swift in Sources */,
 				69F3509E23EA0A7100F61437 /* JobDocument.swift in Sources */,
 				69AE638E23F0EE1D00BF70EA /* JobState.swift in Sources */,
