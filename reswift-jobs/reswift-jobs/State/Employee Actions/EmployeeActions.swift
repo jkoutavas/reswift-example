@@ -9,7 +9,6 @@
 import Foundation
 
 enum EmployeeAction: UndoableAction {
-
     case rename(EmployeeID, name: String)
 
     // MARK: Undoable
@@ -23,7 +22,6 @@ enum EmployeeAction: UndoableAction {
     }
 
     func inverse(context: UndoActionContext) -> UndoableAction? {
-
         switch self {
         case .rename(let employeeID, name: _):
             guard let oldName = context.employeeName(employeeID: employeeID) else { return nil }

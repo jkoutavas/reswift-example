@@ -9,7 +9,6 @@
 import ReSwift
 
 func jobReducer(action: Action, state: JobState?) -> JobState {
-
     // Nil state is only relevant on first launch, so
     // return a demo job for starters.
     guard var state = state else {
@@ -27,14 +26,12 @@ func jobReducer(action: Action, state: JobState?) -> JobState {
 }
 
 private func passActionToList(_ action: Action, job: Job) -> Job {
-
     guard let action = action as? JobAction else { return job }
 
     return action.apply(oldJob: job)
 }
 
 private func passActionToItems(_ action: Action, job: Job) -> Job {
-
     var job = job
 
     job.items = job.items.compactMap { employeeReducer(action, state: $0) }
@@ -43,6 +40,5 @@ private func passActionToItems(_ action: Action, job: Job) -> Job {
 }
 
 private func passActionToSelection(_ action: Action, selectionState: SelectionState) -> SelectionState {
-
     return selectionReducer(action, state: selectionState)
 }

@@ -9,21 +9,17 @@
 import Foundation
 
 struct EmployeeID: Codable {
-
     let identifier: String
 
     init() {
-
-        self.identifier = UUID().uuidString
+        identifier = UUID().uuidString
     }
 
     init(UUID: Foundation.UUID) {
-
-        self.identifier = UUID.uuidString
+        identifier = UUID.uuidString
     }
 
     init?(identifier: String) {
-
         guard let UUID = UUID(uuidString: identifier) else {
             return nil
         }
@@ -32,16 +28,14 @@ struct EmployeeID: Codable {
     }
 }
 
-extension EmployeeID: Equatable { }
+extension EmployeeID: Equatable {}
 
-    func == (lhs: EmployeeID, rhs: EmployeeID) -> Bool {
-
-        return lhs.identifier == rhs.identifier
+func == (lhs: EmployeeID, rhs: EmployeeID) -> Bool {
+    return lhs.identifier == rhs.identifier
 }
 
-extension EmployeeID: Hashable { }
+extension EmployeeID: Hashable {}
 
 extension EmployeeID: CustomStringConvertible {
-
     var description: String { return identifier }
 }

@@ -9,14 +9,13 @@
 import Foundation
 
 enum SelectionAction: Action {
-
     case deselect
     case select(row: Int)
 
     var selectionState: SelectionState {
         switch self {
         case .deselect: return nil
-        case .select(row: let row): return row
+        case let .select(row: row): return row
         }
     }
 }

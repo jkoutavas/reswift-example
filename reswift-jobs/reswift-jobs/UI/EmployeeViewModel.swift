@@ -9,12 +9,10 @@
 import Foundation
 
 protocol DisplaysEmployee {
-
     func showEmployee(employeeViewModel viewModel: EmployeeViewModel)
 }
 
 struct EmployeeViewModel {
-
     let identifier: String
 
     let name: String

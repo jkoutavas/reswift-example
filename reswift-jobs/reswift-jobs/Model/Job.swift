@@ -17,7 +17,6 @@ struct Job: Codable {
     }
 
     mutating func appendItem(_ employee: Employee) {
-
         items.append(employee)
     }
 
@@ -28,7 +27,6 @@ struct Job: Codable {
     /// - if `index` falls inside these bounds, it will be
     ///   inserted between existing elements.
     mutating func insertItem(_ employee: Employee, atIndex index: Int) {
-
         if index < 1 {
             items.insert(employee, at: 0)
         } else if index < items.count {
@@ -43,22 +41,19 @@ struct Job: Codable {
     }
 
     func indexOf(employeeID: EmployeeID) -> Int? {
-
         return items.firstIndex(where: { $0.employeeID == employeeID })
     }
 
     func employee(employeeID: EmployeeID) -> Employee? {
-
         guard let index = indexOf(employeeID: employeeID)
-            else { return nil }
+        else { return nil }
 
         return items[index]
     }
 
     mutating func removeItem(employeeID: EmployeeID) {
-
         guard let index = indexOf(employeeID: employeeID)
-            else { return }
+        else { return }
 
         items.remove(at: index)
     }
@@ -66,15 +61,14 @@ struct Job: Codable {
 
 extension Job {
     init() {
-        self.title = nil
-        self.items = []
+        title = nil
+        items = []
     }
 
     static func demoJob() -> Job {
-
         let employees = [
             Employee(name: "Bob Smith", skills: ["foreman", "electrician"]),
-            Employee(name: "Jane Doe", skills: ["surveyor", "accountant"])
+            Employee(name: "Jane Doe", skills: ["surveyor", "accountant"]),
         ]
 
         return Job(title: "Remodel garage", items: employees)
@@ -84,19 +78,16 @@ extension Job {
 extension Job: Equatable {
     /// Equality check ignoring the `items`'s EmployeeID`s.
     func hasEqualContent(_ other: Job) -> Bool {
-
         guard title == other.title else { return false }
         guard items.count == other.items.count else { return false }
 
         for employee in items {
-
             guard other.items.contains(where: { $0.hasEqualContent(employee) }) else {
                 return false
             }
         }
 
         for employee in other.items {
-
             guard items.contains(where: { $0.hasEqualContent(employee) }) else {
                 return false
             }

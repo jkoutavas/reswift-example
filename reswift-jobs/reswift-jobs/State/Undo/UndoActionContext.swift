@@ -16,7 +16,6 @@ import Foundation
 // Perhaps it's just a matter of giving this module a data model specific name.
 
 protocol UndoActionContext {
-
     var jobTitle: String? { get }
 
     func employeeName(employeeID: EmployeeID) -> String?

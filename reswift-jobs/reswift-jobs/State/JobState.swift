@@ -10,7 +10,6 @@ import Foundation
 import ReSwift
 
 struct JobState: StateType {
-
     var job: Job = Job.demoJob()
     var selection: SelectionState = nil
 }

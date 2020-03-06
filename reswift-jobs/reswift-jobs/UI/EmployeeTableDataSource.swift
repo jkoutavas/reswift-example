@@ -9,7 +9,6 @@
 import Cocoa
 
 class EmployeeTableDataSource: NSObject {
-
     var viewModel: JobViewModel?
     var store: JobStore?
 
@@ -17,20 +16,19 @@ class EmployeeTableDataSource: NSObject {
 }
 
 extension EmployeeTableDataSource: NSTableViewDataSource {
-    func numberOfRows(in tableView: NSTableView) -> Int {
-
+    func numberOfRows(in _: NSTableView) -> Int {
         return viewModel?.itemCount ?? 0
     }
 
-    func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
+    func tableView(_: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
         guard let viewModel = viewModel?.items[row]
-            else { return nil }
+        else { return nil }
 
         return EmployeePasteboardWriter(employee: viewModel, at: row)
     }
 
-    func tableView( _ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int,
-                    proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
+    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow _: Int,
+                   proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
         guard dropOperation == .above else { return [] }
 
         if let source = info.draggingSource as? NSTableView, source === tableView {
@@ -41,10 +39,10 @@ extension EmployeeTableDataSource: NSTableViewDataSource {
         return .move
     }
 
-    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int,
-                   dropOperation: NSTableView.DropOperation) -> Bool {
+    func tableView(_: NSTableView, acceptDrop info: NSDraggingInfo, row: Int,
+                   dropOperation _: NSTableView.DropOperation) -> Bool {
         guard let items = info.draggingPasteboard.pasteboardItems
-            else { return false }
+        else { return false }
 
         let indexes = items.compactMap { $0.integer(forType: .tableViewIndex) }
         if !indexes.isEmpty {

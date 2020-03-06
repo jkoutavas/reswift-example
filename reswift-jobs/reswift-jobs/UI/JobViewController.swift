@@ -9,7 +9,6 @@
 import Cocoa
 
 class JobViewController: NSViewController {
-
     @IBOutlet var tableView: NSTableView!
     @IBOutlet var jobTitleEdit: NSTextField!
 
@@ -30,16 +29,15 @@ class JobViewController: NSViewController {
         didSet {
             tableView.dataSource = dataSource.tableDataSource
             keyboardEventHandler?.dataSource = dataSource
-       }
-   }
+        }
+    }
 
     var store: JobStore? {
-
         didSet {
             dataSource.setStore(jobStore: store)
             keyboardEventHandler?.store = store
-       }
-   }
+        }
+    }
 
     fileprivate var didLoad = false {
         didSet {
@@ -50,18 +48,17 @@ class JobViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.dataSource = self.dataSource.tableDataSource
+        tableView.dataSource = dataSource.tableDataSource
         tableView.delegate = self
         tableView.registerForDraggedTypes([.employee, .tableViewIndex])
 
-        keyboardEventHandler?.dataSource = self.dataSource
-        keyboardEventHandler?.store = self.store
+        keyboardEventHandler?.dataSource = dataSource
+        keyboardEventHandler?.store = store
 
         didLoad = true
     }
 
     @IBAction func changeTitle(_ sender: AnyObject) {
-
         guard let textField = sender as? NSTextField else { return }
 
         let newName = textField.stringValue
@@ -69,19 +66,17 @@ class JobViewController: NSViewController {
         store?.dispatch(RenameJobAction(renameTo: newName))
     }
 
-    @objc func viewWillClose(_ notification: Notification) {
+    @objc func viewWillClose(_: Notification) {
         delegate?.jobViewControllerWillClose(self)
     }
 }
 
 protocol JobViewControllerDelegate: class {
-
     func jobViewControllerDidLoad(_ controller: JobViewController)
     func jobViewControllerWillClose(_ controller: JobViewController)
 }
 
 protocol EmployeeTableDataSourceType {
-
     var tableDataSource: NSTableViewDataSource { get }
 
     var selectedRow: Int? { get }
@@ -95,7 +90,6 @@ protocol EmployeeTableDataSourceType {
 }
 
 extension EmployeeTableDataSourceType where Self: NSTableViewDataSource {
-
     var tableDataSource: NSTableViewDataSource {
         return self
     }
@@ -104,14 +98,11 @@ extension EmployeeTableDataSourceType where Self: NSTableViewDataSource {
 // MARK: Displaying Data
 
 protocol DisplaysJob {
-
     func displayJob(jobViewModel viewModel: JobViewModel)
 }
 
 extension JobViewController: DisplaysJob {
-
     func displayJob(jobViewModel viewModel: JobViewModel) {
-
         displayJobTitle(viewModel: viewModel)
         updateTableDataSource(viewModel: viewModel)
         displaySelection(viewModel: viewModel)
@@ -138,20 +129,18 @@ extension JobViewController: DisplaysJob {
     }
 
     fileprivate func focusTableView() {
-        self.view.window?.makeFirstResponder(tableView)
+        view.window?.makeFirstResponder(tableView)
     }
 }
 
 // MARK: Cell creation & event handling
 
 extension JobViewController: NSTableViewDelegate {
-
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         return dataSource.employeeCellView(tableView, viewFor: tableColumn, row: row)
     }
 
-    func tableViewSelectionDidChange(_ notification: Notification) {
-
+    func tableViewSelectionDidChange(_: Notification) {
         let action: SelectionAction = {
             // "None" equals -1
             guard tableView.selectedRow >= 0 else { return .deselect }
@@ -166,45 +155,44 @@ extension JobViewController: NSTableViewDelegate {
 // TODO: support employee name and skills edits
 
 /*
-extension JobViewController: EmployeeItemChangeDelegate {
+ extension JobViewController: EmployeeItemChangeDelegate {
 
-    func employeeItem(identifier: String, didChangeChecked checked: Bool) {
+ func employeeItem(identifier: String, didChangeChecked checked: Bool) {
 
-        guard let employeeID = EmployeeID(identifier: identifier)
-            else { preconditionFailure("Invalid employee item identifier \(identifier).") }
+     guard let employeeID = EmployeeID(identifier: identifier)
+         else { preconditionFailure("Invalid employee item identifier \(identifier).") }
 
+     let action: EmployeeAction = {
+      }()
 
-        let action: EmployeeAction = {
-         }()
+     store?.dispatch(action)
 
-        store?.dispatch(action)
+ }
 
-    }
+ func employeeItem(identifier: String, didChangeName name: String) {
 
-    func employeeItem(identifier: String, didChangeName name: String) {
+     guard let employeeID = EmployeeID(identifier: identifier)
+         else { preconditionFailure("Invalid Employee item identifier \(identifier).") }
 
-        guard let employeeID = EmployeeID(identifier: identifier)
-            else { preconditionFailure("Invalid Employee item identifier \(identifier).") }
+     store?.dispatch(EmployeeAction.rename(employeeID, name: name))
+ }
+ }
 
-        store?.dispatch(EmployeeAction.rename(employeeID, name: name))
-    }
-}
+ extension JobViewController: EmployeeItemEditDelegate {
 
-extension JobViewController: EmployeeItemEditDelegate {
+ func editItem(row: Int, insertText text: String?) {
 
-    func editItem(row: Int, insertText text: String?) {
+     guard let cellView = self.tableView.view(atColumn: 0, row: row, makeIfNecessary: true) as? EmployeeCellView,
+         let textField = cellView.textField
+         else { return }
 
-        guard let cellView = self.tableView.view(atColumn: 0, row: row, makeIfNecessary: true) as? EmployeeCellView,
-            let textField = cellView.textField
-            else { return }
+     textField.selectText(self)
 
-        textField.selectText(self)
+     guard let editor = textField.currentEditor(),
+         let text = text
+         else { return }
 
-        guard let editor = textField.currentEditor(),
-            let text = text
-            else { return }
-
-        editor.insertText(text)
-    }
-}
-*/
+     editor.insertText(text)
+ }
+ }
+ */

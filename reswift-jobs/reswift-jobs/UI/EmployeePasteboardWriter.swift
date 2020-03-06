@@ -17,7 +17,7 @@ class EmployeePasteboardWriter: NSObject, NSPasteboardWriting {
         self.index = index
     }
 
-    func writableTypes(for pasteboard: NSPasteboard) -> [NSPasteboard.PasteboardType] {
+    func writableTypes(for _: NSPasteboard) -> [NSPasteboard.PasteboardType] {
         return [.employee, .tableViewIndex]
     }
 
@@ -44,7 +44,8 @@ extension NSPasteboardItem {
         let plist = try? PropertyListSerialization.propertyList(
             from: data,
             options: .mutableContainers,
-            format: nil)
+            format: nil
+        )
         return plist as? Int
     }
 }

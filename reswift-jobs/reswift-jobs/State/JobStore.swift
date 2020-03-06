@@ -16,16 +16,16 @@ typealias JobStore = Store<JobState>
 typealias Action = ReSwift.Action
 
 // A typealias will not work and only raise EXC_BAD_ACCESS exceptions. ¯\_(ツ)_/¯
-protocol UndoableAction: Action, Undoable { }
+protocol UndoableAction: Action, Undoable {}
 
 func jobStore(undoManager: UndoManager) -> JobStore {
-
     return JobStore(
         reducer: jobReducer,
         state: nil,
         middleware: [
             removeIdempotentActionsMiddleware,
             loggingMiddleware,
-            undoMiddleware(undoManager: undoManager)
-        ])
+            undoMiddleware(undoManager: undoManager),
+        ]
+    )
 }

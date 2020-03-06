@@ -15,7 +15,6 @@ struct JobViewModel {
 
     let selectedRow: Int?
     var selectedEmployee: EmployeeViewModel? {
-
         guard let selectedRow = selectedRow else { return nil }
         return items[selectedRow]
     }

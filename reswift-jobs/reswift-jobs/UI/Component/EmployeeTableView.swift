@@ -9,10 +9,8 @@
 import Cocoa
 
 class EmployeeTableView: NSTableView {
-
     override func keyDown(with theEvent: NSEvent) {
-
         // Consume keyDown to prevent interpretation here
-        self.nextResponder?.interpretKeyEvents([theEvent])
+        nextResponder?.interpretKeyEvents([theEvent])
     }
 }

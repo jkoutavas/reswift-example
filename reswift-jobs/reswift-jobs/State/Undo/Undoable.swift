@@ -9,7 +9,6 @@
 import Foundation
 
 protocol Undoable {
-
     /// Name used for e.g. "Undo" menu items.
     var name: String { get }
 
@@ -20,9 +19,7 @@ protocol Undoable {
 }
 
 extension Undoable where Self: UndoableAction {
-
     var notUndoable: NotUndoable {
-
         return NotUndoable(self)
     }
 }

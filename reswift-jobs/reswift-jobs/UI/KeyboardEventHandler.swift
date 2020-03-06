@@ -9,23 +9,19 @@
 import Cocoa
 
 class KeyboardEventHandler: PatchingResponder {
-
     var store: JobStore?
     var dataSource: EmployeeTableDataSourceType!
 
     // MARK: Selection
 
-    override func cancelOperation(_ sender: Any?) {
-
-       store?.dispatch(SelectionAction.deselect)
+    override func cancelOperation(_: Any?) {
+        store?.dispatch(SelectionAction.deselect)
     }
 
-    override func moveUp(_ sender: Any?) {
-
+    override func moveUp(_: Any?) {
         let newRow: Int = {
-
             guard let selectedRow = dataSource.selectedRow, selectedRow > 0
-                else { return dataSource.employeeCount - 1 }
+            else { return dataSource.employeeCount - 1 }
 
             return selectedRow - 1
         }()
@@ -33,12 +29,10 @@ class KeyboardEventHandler: PatchingResponder {
         store?.dispatch(SelectionAction.select(row: newRow))
     }
 
-    override func moveDown(_ sender: Any?) {
-
+    override func moveDown(_: Any?) {
         let newRow: Int = {
-
             guard let selectedRow = dataSource.selectedRow, selectedRow < (dataSource.employeeCount - 1)
-                else { return 0 }
+            else { return 0 }
 
             return selectedRow + 1
         }()
@@ -48,25 +42,22 @@ class KeyboardEventHandler: PatchingResponder {
 
     // MARK: Editing
 
-    // TODO
+    // TODO:
 
     // MARK: Removal
 
-    override func deleteForward(_ sender: Any?) {
-
+    override func deleteForward(_: Any?) {
         removeSelectedEmployee()
     }
 
-    override func deleteBackward(_ sender: Any?) {
-
+    override func deleteBackward(_: Any?) {
         removeSelectedEmployee()
     }
 
     fileprivate func removeSelectedEmployee() {
-
         guard let selectedEmployee = dataSource.selectedEmployee,
             let employeeID = EmployeeID(identifier: selectedEmployee.identifier)
-            else { return }
+        else { return }
 
         store?.dispatch(RemoveEmployeeAction(employeeID: employeeID))
     }

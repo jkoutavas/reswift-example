@@ -9,16 +9,14 @@
 import ReSwift
 
 func employeeReducer(_ action: Action, state: Employee?) -> Employee? {
-
     guard let action = action as? EmployeeAction,
         let employee = state
-        else { return state }
+    else { return state }
 
     return handleEmployeeAction(action, employee: employee)
 }
 
 private func handleEmployeeAction(_ action: EmployeeAction, employee: Employee) -> Employee {
-
     var employee = employee
 
     switch action {

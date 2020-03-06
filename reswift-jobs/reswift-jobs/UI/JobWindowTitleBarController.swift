@@ -9,10 +9,9 @@
 import Cocoa
 
 class JobWindowTitleBarController: NSTitlebarAccessoryViewController {
-
     var store: JobStore?
 
-    @IBAction func addEmployee(_ sender: AnyObject) {
+    @IBAction func addEmployee(_: AnyObject) {
         guard let store = store else { return }
         let targetRow = store.state.job.items.count
         store.dispatch(InsertEmployeeAction(employee: Employee.empty, index: targetRow))

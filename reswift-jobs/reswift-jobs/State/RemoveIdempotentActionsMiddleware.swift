@@ -14,10 +14,10 @@ import ReSwift
 /// This is not the most scalable and useful middleware
 /// but it serves to demonstrate how you can interrupt the action handling chain.
 ///
-/// TODO: stop firing events when the view knows nothing has changed.
-let removeIdempotentActionsMiddleware: Middleware<JobState> = { dispatch, getState in
-    return { next in
-        return { action in
+// TODO: stop firing events when the view knows nothing has changed.
+let removeIdempotentActionsMiddleware: Middleware<JobState> = { _, getState in
+    { next in
+        { action in
 
             guard let state = getState() else {
                 next(action)
@@ -26,20 +26,17 @@ let removeIdempotentActionsMiddleware: Middleware<JobState> = { dispatch, getSta
 
             if let action = action as? RenameJobAction,
                 action.newName == state.job.title {
-
                 print("Ignoring \(action)")
 
                 return
             } else if case let EmployeeAction.rename(employeeID, name: name) = action,
                 let employee = state.job.employee(employeeID: employeeID),
                 employee.name == name {
-
                 print("Ignoring \(action)")
 
                 return
             } else if let action = action as? SelectionAction,
                 action.selectionState == state.selection {
-
                 print("Ignoring \(action)")
 
                 return
