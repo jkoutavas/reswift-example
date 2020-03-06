@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct Employee {
-    static var empty: Employee { return Employee(name: "New Employee", skills:"{skills}") }
+struct Employee : Codable {
+    static var empty: Employee { return Employee(name: "New Employee", skills:["skill1", "skill2"]) }
 
     let employeeID: EmployeeID
     var name: String
-    var skills: String
+    var skills: [String]
     
-    init(employeeID: EmployeeID = EmployeeID(), name: String, skills: String) {
+    init(employeeID: EmployeeID = EmployeeID(), name: String, skills: [String]) {
 
         self.employeeID = employeeID
         self.name = name

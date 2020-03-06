@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct EmployeeID {
+struct EmployeeID: Codable {
 
     let identifier: String
 
