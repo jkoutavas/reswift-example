@@ -67,18 +67,17 @@ func undoMiddleware(undoManager: UndoManager) -> Middleware<JobState> {
                     return
                 }
 
-                if let undoableAction = action as? UndoableAction , undoableAction.isUndoable,
+                if let undoableAction = action as? UndoableAction, undoableAction.isUndoable,
                     let state = getState(),
                     let undo = undoAction(action: undoableAction, state: state, dispatch: dispatch) {
 
                     undo.register(undoManager: undoManager)
                 }
 
-
                 next(action)
             }
         }
     }
-    
+
     return undoMiddleware
 }

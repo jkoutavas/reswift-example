@@ -96,28 +96,28 @@ struct RemoveEmployeeAction: UndoableAction, JobAction {
 struct MoveEmployeeAction: UndoableAction, JobAction {
     let from: Int
     let to: Int
-    
+
     init(from: Int, to: Int) {
         self.from = from
         self.to = to
     }
-    
+
     func apply(oldJob: Job) -> Job {
-    
+
         var result = oldJob
         result.moveItems(from: from, to: to)
         return result
     }
-    
+
     var name: String { return "Move Employee" }
     var isUndoable: Bool { return true }
-    
+
     func inverse(context: UndoActionContext) -> UndoableAction? {
 
         let movedDown = self.to > self.from
         let inversedFrom = movedDown ? self.to-1 : self.to
         let inversedTo = movedDown ? self.from : self.from+1
-         
+
         return MoveEmployeeAction(from: inversedFrom, to: inversedTo)
     }
 }

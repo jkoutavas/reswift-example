@@ -11,14 +11,14 @@ import Cocoa
 class JobWindowController: NSWindowController {
 
     var titlebarController: JobWindowTitleBarController?
-    
+
     var store: JobStore? {
 
         didSet {
             titlebarController?.store = store
         }
     }
-       
+
     override func windowDidLoad() {
         titlebarController = self.storyboard?.instantiateController(withIdentifier:
             NSStoryboard.SceneIdentifier("titlebarViewController"))

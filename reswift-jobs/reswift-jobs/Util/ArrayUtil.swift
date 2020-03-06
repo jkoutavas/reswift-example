@@ -17,12 +17,12 @@ extension Array {
         let targetIndex = start < end ? end - 1 : end
         insert(remove(at: start), at: targetIndex)
     }
-    
+
     mutating func move(from indexes: IndexSet, to toIndex: Index) {
-        let movingData = indexes.map{ self[$0] }
-        let targetIndex = toIndex - indexes.filter{ $0 < toIndex }.count
-        for (i, e) in indexes.enumerated() {
-            remove(at: e - i)
+        let movingData = indexes.map { self[$0] }
+        let targetIndex = toIndex - indexes.filter { $0 < toIndex }.count
+        for (index, elem) in indexes.enumerated() {
+            remove(at: elem - index)
         }
         insert(contentsOf: movingData, at: targetIndex)
     }

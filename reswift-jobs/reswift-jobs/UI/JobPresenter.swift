@@ -42,4 +42,3 @@ extension JobPresenter: StoreSubscriber {
         view.displayJob(jobViewModel: viewModel)
     }
 }
-

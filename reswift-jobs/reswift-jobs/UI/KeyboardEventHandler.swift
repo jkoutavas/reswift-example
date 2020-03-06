@@ -24,9 +24,8 @@ class KeyboardEventHandler: PatchingResponder {
 
         let newRow: Int = {
 
-            guard let selectedRow = dataSource.selectedRow
-                , selectedRow > 0
-                else  { return dataSource.employeeCount - 1 }
+            guard let selectedRow = dataSource.selectedRow, selectedRow > 0
+                else { return dataSource.employeeCount - 1 }
 
             return selectedRow - 1
         }()
@@ -38,9 +37,8 @@ class KeyboardEventHandler: PatchingResponder {
 
         let newRow: Int = {
 
-            guard let selectedRow = dataSource.selectedRow
-                , selectedRow < (dataSource.employeeCount - 1)
-                else  { return 0 }
+            guard let selectedRow = dataSource.selectedRow, selectedRow < (dataSource.employeeCount - 1)
+                else { return 0 }
 
             return selectedRow + 1
         }()
@@ -49,7 +47,7 @@ class KeyboardEventHandler: PatchingResponder {
     }
 
     // MARK: Editing
-    
+
     // TODO
 
     // MARK: Removal
@@ -60,17 +58,16 @@ class KeyboardEventHandler: PatchingResponder {
     }
 
     override func deleteBackward(_ sender: Any?) {
-        
+
         removeSelectedEmployee()
     }
-    
+
     fileprivate func removeSelectedEmployee() {
-        
+
         guard let selectedEmployee = dataSource.selectedEmployee,
             let employeeID = EmployeeID(identifier: selectedEmployee.identifier)
             else { return }
-        
+
         store?.dispatch(RemoveEmployeeAction(employeeID: employeeID))
     }
 }
-

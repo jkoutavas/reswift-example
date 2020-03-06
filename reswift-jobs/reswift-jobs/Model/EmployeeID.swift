@@ -34,9 +34,9 @@ struct EmployeeID: Codable {
 
 extension EmployeeID: Equatable { }
 
-func ==(lhs: EmployeeID, rhs: EmployeeID) -> Bool {
+    func == (lhs: EmployeeID, rhs: EmployeeID) -> Bool {
 
-    return lhs.identifier == rhs.identifier
+        return lhs.identifier == rhs.identifier
 }
 
 extension EmployeeID: Hashable { }

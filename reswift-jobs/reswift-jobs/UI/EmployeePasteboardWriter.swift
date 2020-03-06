@@ -11,12 +11,12 @@ import Cocoa
 class EmployeePasteboardWriter: NSObject, NSPasteboardWriting {
     var employee: EmployeeViewModel
     var index: Int
-    
+
     init(employee: EmployeeViewModel, at index: Int) {
         self.employee = employee
         self.index = index
     }
-    
+
     func writableTypes(for pasteboard: NSPasteboard) -> [NSPasteboard.PasteboardType] {
         return [.employee, .tableViewIndex]
     }

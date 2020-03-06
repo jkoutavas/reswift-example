@@ -9,7 +9,7 @@
 import Foundation
 
 enum EmployeeAction: UndoableAction {
-    
+
     case rename(EmployeeID, name: String)
 
     // MARK: Undoable

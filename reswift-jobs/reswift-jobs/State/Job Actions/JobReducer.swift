@@ -10,7 +10,6 @@ import ReSwift
 
 func jobReducer(action: Action, state: JobState?) -> JobState {
 
-
     // Nil state is only relevant on first launch, so
     // return a demo job for starters.
     guard var state = state else {

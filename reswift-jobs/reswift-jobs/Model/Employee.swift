@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct Employee : Codable {
-    static var empty: Employee { return Employee(name: "New Employee", skills:["skill1", "skill2"]) }
+struct Employee: Codable {
+    static var empty: Employee { return Employee(name: "New Employee", skills: ["skill1", "skill2"]) }
 
     let employeeID: EmployeeID
     var name: String
     var skills: [String]
-    
+
     init(employeeID: EmployeeID = EmployeeID(), name: String, skills: [String]) {
 
         self.employeeID = employeeID
@@ -34,7 +34,7 @@ extension Employee: Equatable {
     }
 }
 
-func ==(lhs: Employee, rhs: Employee) -> Bool {
+func == (lhs: Employee, rhs: Employee) -> Bool {
 
     return lhs.employeeID == rhs.employeeID && lhs.name == rhs.name && lhs.skills == rhs.skills
 }

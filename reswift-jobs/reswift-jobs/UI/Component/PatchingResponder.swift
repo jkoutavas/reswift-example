@@ -15,10 +15,10 @@ protocol PatchingResponderType: class {
     func patchIntoResponderChain()
 }
 
-extension PatchingResponderType where Self : NSResponder {
+extension PatchingResponderType where Self: NSResponder {
 
     func patchIntoResponderChain() {
-        
+
         let oldResponder = referenceResponder.nextResponder
         referenceResponder.nextResponder = self
         self.nextResponder = oldResponder
@@ -32,17 +32,16 @@ class PatchingResponder: NSResponder, PatchingResponderType {
     @IBOutlet var referenceResponder: NSResponder!
 
     var initted = false
-    
+
     override func awakeFromNib() {
 
         super.awakeFromNib()
 
         // awakeFromNib gets called twice from a storyboard
         // https://forums.developer.apple.com/thread/23853
-        if (initted) { return }
+        if initted { return }
         initted = true
 
         self.patchIntoResponderChain()
     }
 }
-

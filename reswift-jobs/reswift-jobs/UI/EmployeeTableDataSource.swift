@@ -13,7 +13,7 @@ class EmployeeTableDataSource: NSObject {
     var viewModel: JobViewModel?
     var store: JobStore?
 
-    let emptyEmployee = EmployeeViewModel(identifier:"unknown", name:"unknown", skills:[])
+    let emptyEmployee = EmployeeViewModel(identifier: "unknown", name: "unknown", skills: [])
 }
 
 extension EmployeeTableDataSource: NSTableViewDataSource {
@@ -21,9 +21,8 @@ extension EmployeeTableDataSource: NSTableViewDataSource {
 
         return viewModel?.itemCount ?? 0
     }
-    
-    func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting?
-    {
+
+    func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
         guard let viewModel = viewModel?.items[row]
             else { return nil }
 
@@ -31,12 +30,10 @@ extension EmployeeTableDataSource: NSTableViewDataSource {
     }
 
     func tableView( _ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int,
-        proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation
-    {
+                    proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
         guard dropOperation == .above else { return [] }
 
-        if let source = info.draggingSource as? NSTableView, source === tableView
-        {
+        if let source = info.draggingSource as? NSTableView, source === tableView {
             tableView.draggingDestinationFeedbackStyle = .gap
         } else {
             tableView.draggingDestinationFeedbackStyle = .regular
@@ -45,12 +42,11 @@ extension EmployeeTableDataSource: NSTableViewDataSource {
     }
 
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int,
-        dropOperation: NSTableView.DropOperation) -> Bool
-    {
+                   dropOperation: NSTableView.DropOperation) -> Bool {
         guard let items = info.draggingPasteboard.pasteboardItems
             else { return false }
 
-        let indexes = items.compactMap{ $0.integer(forType: .tableViewIndex) }
+        let indexes = items.compactMap { $0.integer(forType: .tableViewIndex) }
         if !indexes.isEmpty {
             store?.dispatch(MoveEmployeeAction(from: indexes[0], to: row))
             return true
@@ -64,19 +60,19 @@ extension EmployeeTableDataSource: EmployeeTableDataSourceType {
     var selectedRow: Int? { return viewModel?.selectedRow }
     var selectedEmployee: EmployeeViewModel? { return viewModel?.selectedEmployee }
     var employeeCount: Int { return viewModel?.itemCount ?? 0 }
-    
+
     func getStore() -> JobStore? {
         return store
     }
-    
+
     func setStore(jobStore: JobStore?) {
         store = jobStore
     }
-    
+
     func updateContents(jobViewModel viewModel: JobViewModel) {
         self.viewModel = viewModel
     }
-    
+
     func employeeCellView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         guard let cell = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self)
             as? NSTableCellView else { return nil }
@@ -86,10 +82,10 @@ extension EmployeeTableDataSource: EmployeeTableDataSourceType {
             if tableColumn == tableView.tableColumns[0] {
                 textField.stringValue = employee.name
             } else {
-                textField.stringValue = employee.skills.joined(separator:", ")
+                textField.stringValue = employee.skills.joined(separator: ", ")
             }
         }
-        
+
         return cell
     }
 }

@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct Job : Codable {
+struct Job: Codable {
     var title: String?
     var items: [Employee]
 
     var isEmpty: Bool {
         return (title?.isEmpty ?? true) && items.isEmpty
     }
-    
+
     mutating func appendItem(_ employee: Employee) {
 
         items.append(employee)
@@ -37,11 +37,11 @@ struct Job : Codable {
             items.append(employee)
         }
     }
-    
+
     mutating func moveItems(from: Int, to: Int) {
         items.move(from: from, to: to)
     }
-    
+
     func indexOf(employeeID: EmployeeID) -> Int? {
 
         return items.firstIndex(where: { $0.employeeID == employeeID })
@@ -69,7 +69,7 @@ extension Job {
         self.title = nil
         self.items = []
     }
-    
+
     static func demoJob() -> Job {
 
         let employees = [
@@ -106,6 +106,6 @@ extension Job: Equatable {
     }
 }
 
-func ==(lhs: Job, rhs: Job) -> Bool {
+func == (lhs: Job, rhs: Job) -> Bool {
     return lhs.title == rhs.title && lhs.items == rhs.items
 }

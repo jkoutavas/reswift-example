@@ -29,4 +29,3 @@ func jobStore(undoManager: UndoManager) -> JobStore {
             undoMiddleware(undoManager: undoManager)
         ])
 }
-

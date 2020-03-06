@@ -16,4 +16,3 @@ let loggingMiddleware: Middleware<JobState> = { dispatch, getState in
         }
     }
 }
-

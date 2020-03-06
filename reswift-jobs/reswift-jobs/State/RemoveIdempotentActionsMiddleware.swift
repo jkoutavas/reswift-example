@@ -44,7 +44,7 @@ let removeIdempotentActionsMiddleware: Middleware<JobState> = { dispatch, getSta
 
                 return
             }
-            
+
             return next(action)
         }
     }

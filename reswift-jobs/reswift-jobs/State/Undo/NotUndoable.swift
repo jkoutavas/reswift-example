@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 /// Wrapper around an action to flag it as not undoable, like when it's
 /// already on the undo-stack.
 struct NotUndoable: Action {

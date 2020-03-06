@@ -25,7 +25,7 @@ class JobViewController: NSViewController {
             delegate?.jobViewControllerDidLoad(self)
         }
     }
-   
+
     var dataSource: EmployeeTableDataSourceType = EmployeeTableDataSource() {
         didSet {
             tableView.dataSource = dataSource.tableDataSource
@@ -40,23 +40,23 @@ class JobViewController: NSViewController {
             keyboardEventHandler?.store = store
        }
    }
-       
+
     fileprivate var didLoad = false {
         didSet {
             delegate?.jobViewControllerDidLoad(self)
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tableView.dataSource = self.dataSource.tableDataSource
         tableView.delegate = self
         tableView.registerForDraggedTypes([.employee, .tableViewIndex])
-        
+
         keyboardEventHandler?.dataSource = self.dataSource
         keyboardEventHandler?.store = self.store
-        
+
         didLoad = true
     }
 
@@ -149,7 +149,7 @@ extension JobViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         return dataSource.employeeCellView(tableView, viewFor: tableColumn, row: row)
     }
-    
+
     func tableViewSelectionDidChange(_ notification: Notification) {
 
         let action: SelectionAction = {
