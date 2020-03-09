@@ -23,6 +23,9 @@ private func handleEmployeeAction(_ action: EmployeeAction, employee: Employee) 
     case let .rename(employeeID, name: name):
         guard employee.employeeID == employeeID else { return employee }
         employee.name = name
+    case let .editSkills(employeeID, skills: skills):
+        guard employee.employeeID == employeeID else { return employee }
+        employee.skills = skills
     }
 
     return employee

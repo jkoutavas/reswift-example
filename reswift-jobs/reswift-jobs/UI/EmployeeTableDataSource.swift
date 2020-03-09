@@ -86,4 +86,23 @@ extension EmployeeTableDataSource: EmployeeTableDataSourceType {
 
         return cell
     }
+
+    func renameEmployee(name: String, row: Int) {
+        if let employee = viewModel?.items[row] {
+            guard let employeeID = EmployeeID(identifier: employee.identifier)
+            else { preconditionFailure("Invalid Employee item identifier \(employee.identifier).") }
+
+            store?.dispatch(EmployeeAction.rename(employeeID, name: name))
+        }
+    }
+
+    func editSkills(skillsString: String, row: Int) {
+        if let employee = viewModel?.items[row] {
+             guard let employeeID = EmployeeID(identifier: employee.identifier)
+             else { preconditionFailure("Invalid Employee item identifier \(employee.identifier).") }
+
+             store?.dispatch(EmployeeAction.editSkills(employeeID,
+                skills: skillsString.components(separatedBy: ",")))
+         }
+    }
 }

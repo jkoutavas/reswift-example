@@ -1,6 +1,6 @@
 # reswift-example #
 
-*README last updated March 5th, 2020*
+*README last updated March 8th, 2020*
 
 ## Introduction
 
@@ -23,7 +23,7 @@ I'm just getting underway on the project, here's the laundry list of things I wa
 [x] Started a public github repo
 [x] Able to display, edit, undo/redo a job name
 [x] Able to display employees assigned to a job
-[ ] Able to edit, undo/redo employee names and skills
+[x] Able to edit, undo/redo employee names and skills
 [x] Able to re-order the list of employees with undo/redo
 [x] Able to add an employee with undo/redo
 [x] Able to delete an employee with undo/redo
