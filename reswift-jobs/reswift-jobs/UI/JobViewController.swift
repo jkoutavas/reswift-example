@@ -65,6 +65,18 @@ class JobViewController: NSViewController {
 
         store?.dispatch(RenameJobAction(renameTo: newName))
     }
+    
+    @IBAction func textEdited(_ sender: Any) {
+         if let textField = sender as? NSTextField {
+             let row = tableView.row(for: textField)
+             let col = tableView.column(for: textField)
+             if col == 0 {
+                 dataSource.renameEmployee(name: textField.stringValue, row: row)
+             } else {
+                dataSource.editSkills(skillsString: textField.stringValue, row: row)
+             }
+         }
+     }
 
     @objc func viewWillClose(_: Notification) {
         delegate?.jobViewControllerWillClose(self)
@@ -87,6 +99,8 @@ protocol EmployeeTableDataSourceType {
     func getStore() -> JobStore?
     func setStore(jobStore: JobStore?)
     func employeeCellView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?
+    func renameEmployee(name: String, row: Int)
+    func editSkills(skillsString: String, row: Int)
 }
 
 extension EmployeeTableDataSourceType where Self: NSTableViewDataSource {
@@ -133,8 +147,6 @@ extension JobViewController: DisplaysJob {
     }
 }
 
-// MARK: Cell creation & event handling
-
 extension JobViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         return dataSource.employeeCellView(tableView, viewFor: tableColumn, row: row)
@@ -151,48 +163,3 @@ extension JobViewController: NSTableViewDelegate {
         store?.dispatch(action)
     }
 }
-
-// TODO: support employee name and skills edits
-
-/*
- extension JobViewController: EmployeeItemChangeDelegate {
-
- func employeeItem(identifier: String, didChangeChecked checked: Bool) {
-
-     guard let employeeID = EmployeeID(identifier: identifier)
-         else { preconditionFailure("Invalid employee item identifier \(identifier).") }
-
-     let action: EmployeeAction = {
-      }()
-
-     store?.dispatch(action)
-
- }
-
- func employeeItem(identifier: String, didChangeName name: String) {
-
-     guard let employeeID = EmployeeID(identifier: identifier)
-         else { preconditionFailure("Invalid Employee item identifier \(identifier).") }
-
-     store?.dispatch(EmployeeAction.rename(employeeID, name: name))
- }
- }
-
- extension JobViewController: EmployeeItemEditDelegate {
-
- func editItem(row: Int, insertText text: String?) {
-
-     guard let cellView = self.tableView.view(atColumn: 0, row: row, makeIfNecessary: true) as? EmployeeCellView,
-         let textField = cellView.textField
-         else { return }
-
-     textField.selectText(self)
-
-     guard let editor = textField.currentEditor(),
-         let text = text
-         else { return }
-
-     editor.insertText(text)
- }
- }
- */

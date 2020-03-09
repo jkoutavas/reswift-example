@@ -21,6 +21,10 @@ class UndoableStateAdapter: UndoActionContext {
     func employeeName(employeeID: EmployeeID) -> String? {
         return state.job.employee(employeeID: employeeID)?.name
     }
+    
+    func employeeSkills(employeeID: EmployeeID) -> Array<String>? {
+        return state.job.employee(employeeID: employeeID)?.skills
+    }
 
     func jobIn(employeeID: EmployeeID) -> JobIn? {
         guard let index = state.job.indexOf(employeeID: employeeID),
