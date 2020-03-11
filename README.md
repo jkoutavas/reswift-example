@@ -1,6 +1,6 @@
 # reswift-example #
 
-*README last updated March 8th, 2020*
+*README last updated March 11th, 2020*
 
 ## Introduction
 
@@ -11,13 +11,13 @@ Right now there is one example application in this repository, `reswift-jobs`. T
 ### reswift-jobs 
 `reswift-jobs` is a take-off of the [ReSwift example TODO app](https://github.com/ReSwift/ReSwift-Todo-Example) but instead of per-document TODO lists, it has per-document "Jobs" with lists of employees and their skills. 
 ![](reswift-jobs/screenshot.png)
-This allows me to explore using a multicolumn NSOutlineView as well as moving employees between jobs and re-ordering them within a given job. In short, a number of new ReSwift actions on top of what the TODO example app does.
+This allows me to explore using a multicolumn NSTableView as well as moving employees between jobs and re-ordering them within a given job. In short, creating a number of new ReSwift actions on top of what the TODO example app does.
 
 I chose this set of actions as a warm-up exercise for another app I'm working on, but chose employees and jobs as a nice break from the usual proverbial TODO list app. Besides, I wanted to literally type the code out from the TODO example app, not just copy the code whole cloth (though there definitely has been some of that done too.) This allows me to develop my "muscle memory" for working in ReSwift, which it, and the [Flux design pattern](https://code-cartoons.com/a-cartoon-guide-to-flux-6157355ab207) it is based on, is a new paradigm for me to wrap my wits about.
 
 ### Current state of reswift-jobs
 
-I'm just getting underway on the project, here's the laundry list of things I want to accomplish.
+Here's the laundry list of things I want to accomplish with this example:
 
 ```
 [x] Started a public github repo
