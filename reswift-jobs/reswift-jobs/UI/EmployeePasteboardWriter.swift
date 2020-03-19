@@ -24,7 +24,13 @@ class EmployeePasteboardWriter: NSObject, NSPasteboardWriting {
     func pasteboardPropertyList(forType type: NSPasteboard.PasteboardType) -> Any? {
         switch type {
         case .employee:
-            return employee.name
+            do {
+                let jsonData = try JSONEncoder().encode(employee)
+                let jsonString = String(data: jsonData, encoding: .utf8)!
+                return jsonString
+            } catch {
+                return nil
+            }
         case .tableViewIndex:
             return index
         default:
