@@ -29,28 +29,50 @@ extension EmployeeTableDataSource: NSTableViewDataSource {
 
     func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow _: Int,
                    proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
-        guard dropOperation == .above else { return [] }
-
         if let source = info.draggingSource as? NSTableView, source === tableView {
+            // We're moving an item within the same tableview
             tableView.draggingDestinationFeedbackStyle = .gap
+            return .move
         } else {
+            // We're copying an item from another table view
             tableView.draggingDestinationFeedbackStyle = .regular
+            return .copy
         }
-        return .move
     }
 
-    func tableView(_: NSTableView, acceptDrop info: NSDraggingInfo, row: Int,
+    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int,
                    dropOperation _: NSTableView.DropOperation) -> Bool {
         guard let items = info.draggingPasteboard.pasteboardItems
         else { return false }
 
-        let indexes = items.compactMap { $0.integer(forType: .tableViewIndex) }
-        if !indexes.isEmpty {
-            store?.dispatch(MoveEmployeeAction(from: indexes[0], to: row))
-            return true
+        if let source = info.draggingSource as? NSTableView, source === tableView {
+            let indexes = items.compactMap { $0.integer(forType: .tableViewIndex) }
+            if !indexes.isEmpty {
+                store?.dispatch(MoveEmployeeAction(from: indexes[0], to: row))
+                return true
+            }
+        } else {
+            let employees = items.compactMap { $0.string(forType: .employee) }
+            if !employees.isEmpty {
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    let viewModel = try jsonDecoder.decode(EmployeeViewModel.self,
+                                                           from: employees[0].data(using: .utf8)!)
+                    let employeeID = EmployeeID(identifier: viewModel.identifier)!
+                    if store?.state.job.indexOf(employeeID: employeeID) != nil {
+                        return false
+                    }
+                    store?.dispatch(InsertEmployeeAction(employee:
+                        Employee(employeeID: employeeID, name: viewModel.name, skills: viewModel.skills),
+                        index: row))
+                    return true
+                } catch {
+                    return false
+                }
+            }
         }
 
-        return true
+        return false
     }
 }
 
