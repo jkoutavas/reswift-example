@@ -65,7 +65,7 @@ class JobViewController: NSViewController {
 
         store?.dispatch(RenameJobAction(renameTo: newName))
     }
-    
+
     @IBAction func textEdited(_ sender: Any) {
          if let textField = sender as? NSTextField {
              let row = tableView.row(for: textField)

@@ -68,7 +68,7 @@ extension Job {
     static func demoJob() -> Job {
         let employees = [
             Employee(name: "Bob Smith", skills: ["foreman", "electrician"]),
-            Employee(name: "Jane Doe", skills: ["surveyor", "accountant"]),
+            Employee(name: "Jane Doe", skills: ["surveyor", "accountant"])
         ]
 
         return Job(title: "Remodel garage", items: employees)
