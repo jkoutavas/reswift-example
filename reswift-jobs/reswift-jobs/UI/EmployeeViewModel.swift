@@ -16,5 +16,5 @@ struct EmployeeViewModel: Codable {
     let identifier: String
 
     let name: String
-    let skills: [String]
+    let roles: [String]
 }

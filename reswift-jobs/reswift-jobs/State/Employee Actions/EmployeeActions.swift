@@ -10,7 +10,7 @@ import Foundation
 
 enum EmployeeAction: UndoableAction {
     case rename(EmployeeID, name: String)
-    case editSkills(EmployeeID, skills: [String])
+    case editRoles(EmployeeID, roles: [String])
 
     // MARK: Undoable
 
@@ -19,7 +19,7 @@ enum EmployeeAction: UndoableAction {
     var name: String {
         switch self {
         case .rename: return "Rename Employee"
-        case .editSkills: return "Edit Skills"
+        case .editRoles: return "Edit Roles"
         }
     }
 
@@ -29,9 +29,9 @@ enum EmployeeAction: UndoableAction {
             guard let oldName = context.employeeName(employeeID: employeeID) else { return nil }
             return EmployeeAction.rename(employeeID, name: oldName)
 
-        case .editSkills(let employeeID, skills: _):
-            guard let oldSkills = context.employeeSkills(employeeID: employeeID) else { return nil }
-            return EmployeeAction.editSkills(employeeID, skills: oldSkills)
+        case .editRoles(let employeeID, roles: _):
+            guard let oldRoles = context.employeeRoles(employeeID: employeeID) else { return nil }
+            return EmployeeAction.editRoles(employeeID, roles: oldRoles)
         }
     }
 }

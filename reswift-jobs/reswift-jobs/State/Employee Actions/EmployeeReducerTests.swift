@@ -21,7 +21,7 @@ class EmployeeReducerTests: XCTestCase {
 
     func testHandleAction_WithUnsupportedActionAndState_ReturnsState() {
         struct SomeAction: Action {}
-        let state = Employee(name: "Bob Smith", skills: ["Foreman"])
+        let state = Employee(name: "Bob Smith", roles: ["Foreman"])
 
         let result = employeeReducer(SomeAction(), state: state)
 

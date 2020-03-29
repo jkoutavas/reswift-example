@@ -1,6 +1,6 @@
 # reswift-example #
 
-*README last updated March 22nd, 2020*
+*README last updated March 29th, 2020*
 
 ## Introduction
 
@@ -9,7 +9,7 @@ This repository contains my playground for learning the ins and outs of using [R
 Right now there is one example application in this repository, `reswift-jobs`. There may be others down the road. We'll see.
 
 ### reswift-jobs 
-`reswift-jobs` is a take-off of the [ReSwift example TODO app](https://github.com/ReSwift/ReSwift-Todo-Example) but instead of per-document TODO lists, it has per-document "Jobs" with lists of employees and their skills. 
+`reswift-jobs` is a take-off of the [ReSwift example TODO app](https://github.com/ReSwift/ReSwift-Todo-Example) but instead of per-document TODO lists, it has per-document "Jobs" with lists of employees and their roles. 
 ![](reswift-jobs/screenshot.png)
 
 This allows me to explore using a multicolumn NSTableView as well as moving employees between jobs and re-ordering them within a given job. In short, creating a number of new ReSwift actions on top of what the TODO example app does.
@@ -20,7 +20,7 @@ I chose this set of actions as a warm-up exercise for another app I'm working on
 
 - Ablity to display, edit, undo/redo a job name
 - Ablity to display employees assigned to a job
-- Ablity to edit, undo/redo employee names and skills
+- Ablity to edit, undo/redo employee names and roles
 - Ablity to re-order the list of employees with undo/redo
 - Ablity to add an employee with undo/redo
 - Ablity to delete an employee with undo/redo
