@@ -67,16 +67,16 @@ class JobViewController: NSViewController {
     }
 
     @IBAction func textEdited(_ sender: Any) {
-         if let textField = sender as? NSTextField {
-             let row = tableView.row(for: textField)
-             let col = tableView.column(for: textField)
-             if col == 0 {
-                 dataSource.renameEmployee(name: textField.stringValue, row: row)
-             } else {
+        if let textField = sender as? NSTextField {
+            let row = tableView.row(for: textField)
+            let col = tableView.column(for: textField)
+            if col == 0 {
+                dataSource.renameEmployee(name: textField.stringValue, row: row)
+            } else {
                 dataSource.editSkills(skillsString: textField.stringValue, row: row)
-             }
-         }
-     }
+            }
+        }
+    }
 
     @objc func viewWillClose(_: Notification) {
         delegate?.jobViewControllerWillClose(self)

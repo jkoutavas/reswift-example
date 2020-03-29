@@ -49,7 +49,7 @@ struct InsertEmployeeAction: UndoableAction, JobAction {
 
     func apply(oldJob: Job) -> Job {
         var result = oldJob
-        result.insertItem(employee, atIndex: index)
+        result.insertEmployee(employee, atIndex: index)
         return result
     }
 
@@ -66,7 +66,7 @@ struct RemoveEmployeeAction: UndoableAction, JobAction {
 
     func apply(oldJob: Job) -> Job {
         var result = oldJob
-        result.removeItem(employeeID: employeeID)
+        result.removeEmployee(employeeID: employeeID)
         return result
     }
 
@@ -91,7 +91,7 @@ struct MoveEmployeeAction: UndoableAction, JobAction {
 
     func apply(oldJob: Job) -> Job {
         var result = oldJob
-        result.moveItems(from: from, to: to)
+        result.moveEmployees(from: from, to: to)
         return result
     }
 

@@ -1,6 +1,6 @@
 # reswift-example #
 
-*README last updated March 19th, 2020*
+*README last updated March 22nd, 2020*
 
 ## Introduction
 
@@ -11,26 +11,27 @@ Right now there is one example application in this repository, `reswift-jobs`. T
 ### reswift-jobs 
 `reswift-jobs` is a take-off of the [ReSwift example TODO app](https://github.com/ReSwift/ReSwift-Todo-Example) but instead of per-document TODO lists, it has per-document "Jobs" with lists of employees and their skills. 
 ![](reswift-jobs/screenshot.png)
+
 This allows me to explore using a multicolumn NSTableView as well as moving employees between jobs and re-ordering them within a given job. In short, creating a number of new ReSwift actions on top of what the TODO example app does.
 
 I chose this set of actions as a warm-up exercise for another app I'm working on, but chose employees and jobs as a nice break from the usual proverbial TODO list app. Besides, I wanted to literally type the code out from the TODO example app, not just copy the code whole cloth (though there definitely has been some of that done too.) This allows me to develop my "muscle memory" for working in ReSwift, which it, and the [Flux design pattern](https://code-cartoons.com/a-cartoon-guide-to-flux-6157355ab207) it is based on, is a new paradigm for me to wrap my wits about.
 
-### Current state of reswift-jobs
+#### Featured example functions of the app are:
 
-Here's the laundry list of things I want to accomplish with this example:
+- Ablity to display, edit, undo/redo a job name
+- Ablity to display employees assigned to a job
+- Ablity to edit, undo/redo employee names and skills
+- Ablity to re-order the list of employees with undo/redo
+- Ablity to add an employee with undo/redo
+- Ablity to delete an employee with undo/redo
+- Ablity to copy an employee from one job to another with undo/redo
 
-```
-[x] Started a public github repo
-[x] Able to display, edit, undo/redo a job name
-[x] Able to display employees assigned to a job
-[x] Able to edit, undo/redo employee names and skills
-[x] Able to re-order the list of employees with undo/redo
-[x] Able to add an employee with undo/redo
-[x] Able to delete an employee with undo/redo
-[x] Able to copy an employee from one job to another with undo/redo
-[x] Job document load and save
-[ ] Unit tests
-```
+#### How unit tests are organized
+
+A difference between the original ReSwift-Todo-Example and this repository is I like to place unit tests physically in the same directory as the source code under test. This makes them easier to find and manage in the IDE.
+
+You can read about how I set this up in the project from the article [How to Rearrange Xcode Projects to Increase Testing](https://qualitycoding.org/rearrange-project-test-code/)
+
 
 ### Things I'm considering changing ###
 

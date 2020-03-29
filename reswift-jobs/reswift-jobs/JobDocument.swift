@@ -25,7 +25,8 @@ class JobDocument: NSDocument {
         // Returns the Storyboard that contains your Document window.
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         guard let windowController =
-            storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("JobWindowController")) as? JobWindowController
+            storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("JobWindowController"))
+            as? JobWindowController
         else { return }
         addWindowController(windowController)
         windowController.store = store

@@ -10,12 +10,12 @@ import Foundation
 
 struct JobViewModel {
     let title: String
-    let items: [EmployeeViewModel]
-    var itemCount: Int { return items.count }
+    let employees: [EmployeeViewModel]
+    var itemCount: Int { return employees.count }
 
     let selectedRow: Int?
     var selectedEmployee: EmployeeViewModel? {
         guard let selectedRow = selectedRow else { return nil }
-        return items[selectedRow]
+        return employees[selectedRow]
     }
 }

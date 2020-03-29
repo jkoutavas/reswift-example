@@ -15,7 +15,7 @@ struct Employee: Codable {
     var name: String
     var skills: [String]
 
-    init(employeeID: EmployeeID = EmployeeID(), name: String, skills: [String]) {
+    init(employeeID: EmployeeID = EmployeeID(), name: String, skills: [String] = []) {
         self.employeeID = employeeID
         self.name = name
         self.skills = skills
@@ -25,12 +25,12 @@ struct Employee: Codable {
 // MARK: Employee (sub)type equatability
 
 extension Employee: Equatable {
-    /// Equality check ignoring the `EmployeeID`.
     func hasEqualContent(_ other: Employee) -> Bool {
-        return name == other.name && skills == other.skills
+        return self == other
     }
 }
 
 func == (lhs: Employee, rhs: Employee) -> Bool {
-    return lhs.employeeID == rhs.employeeID && lhs.name == rhs.name && lhs.skills == rhs.skills
+    /// Equality check ignoring skills
+    return lhs.employeeID == rhs.employeeID && lhs.name == rhs.name
 }

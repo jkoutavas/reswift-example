@@ -25,7 +25,7 @@ func jobStore(undoManager: UndoManager) -> JobStore {
         middleware: [
             removeIdempotentActionsMiddleware,
             loggingMiddleware,
-            undoMiddleware(undoManager: undoManager),
+            undoMiddleware(undoManager: undoManager)
         ]
     )
 }
