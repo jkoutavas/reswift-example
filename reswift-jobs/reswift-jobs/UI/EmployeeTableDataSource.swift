@@ -21,7 +21,7 @@ extension EmployeeTableDataSource: NSTableViewDataSource {
     }
 
     func tableView(_: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
-        guard let viewModel = viewModel?.items[row]
+        guard let viewModel = viewModel?.employees[row]
         else { return nil }
 
         return EmployeePasteboardWriter(employee: viewModel, at: row)
@@ -42,17 +42,17 @@ extension EmployeeTableDataSource: NSTableViewDataSource {
 
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int,
                    dropOperation _: NSTableView.DropOperation) -> Bool {
-        guard let items = info.draggingPasteboard.pasteboardItems
+        guard let employees = info.draggingPasteboard.pasteboardItems
         else { return false }
 
         if let source = info.draggingSource as? NSTableView, source === tableView {
-            let indexes = items.compactMap { $0.integer(forType: .tableViewIndex) }
+            let indexes = employees.compactMap { $0.integer(forType: .tableViewIndex) }
             if !indexes.isEmpty {
                 store?.dispatch(MoveEmployeeAction(from: indexes[0], to: row))
                 return true
             }
         } else {
-            let employees = items.compactMap { $0.string(forType: .employee) }
+            let employees = employees.compactMap { $0.string(forType: .employee) }
             if !employees.isEmpty {
                 do {
                     let jsonDecoder = JSONDecoder()
@@ -98,7 +98,7 @@ extension EmployeeTableDataSource: EmployeeTableDataSourceType {
             as? NSTableCellView else { return nil }
         guard let textField = cell.textField else { return nil }
 
-        if let employee = viewModel?.items[row] {
+        if let employee = viewModel?.employees[row] {
             if tableColumn == tableView.tableColumns[0] {
                 textField.stringValue = employee.name
             } else {
@@ -110,7 +110,7 @@ extension EmployeeTableDataSource: EmployeeTableDataSourceType {
     }
 
     func renameEmployee(name: String, row: Int) {
-        if let employee = viewModel?.items[row] {
+        if let employee = viewModel?.employees[row] {
             guard let employeeID = EmployeeID(identifier: employee.identifier)
             else { preconditionFailure("Invalid Employee item identifier \(employee.identifier).") }
 
@@ -119,7 +119,7 @@ extension EmployeeTableDataSource: EmployeeTableDataSourceType {
     }
 
     func editSkills(skillsString: String, row: Int) {
-        if let employee = viewModel?.items[row] {
+        if let employee = viewModel?.employees[row] {
              guard let employeeID = EmployeeID(identifier: employee.identifier)
              else { preconditionFailure("Invalid Employee item identifier \(employee.identifier).") }
 

@@ -9,60 +9,63 @@
 import Foundation
 
 struct Job: Codable {
+
+    static var empty: Job { return Job(title: nil, employees: []) }
+
     var title: String?
-    var items: [Employee]
+    var employees: [Employee]
 
     var isEmpty: Bool {
-        return (title?.isEmpty ?? true) && items.isEmpty
+        return (title?.isEmpty ?? true) && employees.isEmpty
     }
 
-    mutating func appendItem(_ employee: Employee) {
-        items.append(employee)
+    mutating func addEmployee(_ employee: Employee) {
+        employees.append(employee)
     }
 
     /// Always inserts `employee` into the list:
     ///
-    /// - if `index` exceeds the bounds of the items collection,
+    /// - if `index` exceeds the bounds of the employees collection,
     ///   it will be appended or prepended;
     /// - if `index` falls inside these bounds, it will be
     ///   inserted between existing elements.
-    mutating func insertItem(_ employee: Employee, atIndex index: Int) {
+    mutating func insertEmployee(_ employee: Employee, atIndex index: Int) {
         if index < 1 {
-            items.insert(employee, at: 0)
-        } else if index < items.count {
-            items.insert(employee, at: index)
+            employees.insert(employee, at: 0)
+        } else if index < employees.count {
+            employees.insert(employee, at: index)
         } else {
-            items.append(employee)
+            employees.append(employee)
         }
     }
 
-    mutating func moveItems(from: Int, to: Int) {
-        items.move(from: from, to: to)
+    mutating func moveEmployees(from: Int, to: Int) {
+        employees.move(from: from, to: to)
     }
 
     func indexOf(employeeID: EmployeeID) -> Int? {
-        return items.firstIndex(where: { $0.employeeID == employeeID })
+        return employees.firstIndex(where: { $0.employeeID == employeeID })
     }
 
     func employee(employeeID: EmployeeID) -> Employee? {
         guard let index = indexOf(employeeID: employeeID)
         else { return nil }
 
-        return items[index]
+        return employees[index]
     }
 
-    mutating func removeItem(employeeID: EmployeeID) {
+    mutating func removeEmployee(employeeID: EmployeeID) {
         guard let index = indexOf(employeeID: employeeID)
         else { return }
 
-        items.remove(at: index)
+        employees.remove(at: index)
     }
 }
 
 extension Job {
     init() {
         title = nil
-        items = []
+        employees = []
     }
 
     static func demoJob() -> Job {
@@ -71,24 +74,24 @@ extension Job {
             Employee(name: "Jane Doe", skills: ["surveyor", "accountant"])
         ]
 
-        return Job(title: "Remodel garage", items: employees)
+        return Job(title: "Remodel garage", employees: employees)
     }
 }
 
 extension Job: Equatable {
-    /// Equality check ignoring the `items`'s EmployeeID`s.
+    /// Equality check ignoring the `employees`'s EmployeeID`s.
     func hasEqualContent(_ other: Job) -> Bool {
         guard title == other.title else { return false }
-        guard items.count == other.items.count else { return false }
+        guard employees.count == other.employees.count else { return false }
 
-        for employee in items {
-            guard other.items.contains(where: { $0.hasEqualContent(employee) }) else {
+        for employee in employees {
+            guard other.employees.contains(where: { $0.hasEqualContent(employee) }) else {
                 return false
             }
         }
 
-        for employee in other.items {
-            guard items.contains(where: { $0.hasEqualContent(employee) }) else {
+        for employee in other.employees {
+            guard employees.contains(where: { $0.hasEqualContent(employee) }) else {
                 return false
             }
         }
@@ -98,5 +101,5 @@ extension Job: Equatable {
 }
 
 func == (lhs: Job, rhs: Job) -> Bool {
-    return lhs.title == rhs.title && lhs.items == rhs.items
+    return lhs.title == rhs.title && lhs.employees == rhs.employees
 }

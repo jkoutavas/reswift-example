@@ -16,8 +16,8 @@ func jobReducer(action: Action, state: JobState?) -> JobState {
     }
 
     var job = state.job
-    job = passActionToList(action, job: job)
-    job = passActionToItems(action, job: job)
+    job = passActionToJob(action, job: job)
+    job = passActionToEmployees(action, job: job)
     state.job = job
 
     state.selection = passActionToSelection(action, selectionState: state.selection)
@@ -25,16 +25,16 @@ func jobReducer(action: Action, state: JobState?) -> JobState {
     return state
 }
 
-private func passActionToList(_ action: Action, job: Job) -> Job {
+private func passActionToJob(_ action: Action, job: Job) -> Job {
     guard let action = action as? JobAction else { return job }
 
     return action.apply(oldJob: job)
 }
 
-private func passActionToItems(_ action: Action, job: Job) -> Job {
+private func passActionToEmployees(_ action: Action, job: Job) -> Job {
     var job = job
 
-    job.items = job.items.compactMap { employeeReducer(action, state: $0) }
+    job.employees = job.employees.compactMap { employeeReducer(action, state: $0) }
 
     return job
 }
