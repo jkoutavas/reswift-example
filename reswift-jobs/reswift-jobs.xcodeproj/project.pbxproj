@@ -11,6 +11,12 @@
 		697233222402B27700E91FBA /* JobWindowTitleBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697233212402B27700E91FBA /* JobWindowTitleBarController.swift */; };
 		697233242405F75000E91FBA /* EmployeePasteboardWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697233232405F75000E91FBA /* EmployeePasteboardWriter.swift */; };
 		69723331240C342800E91FBA /* ArrayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69723330240C342800E91FBA /* ArrayUtil.swift */; };
+		697F315C24284C5E00001EF3 /* EmployeeReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697F315B24284C5E00001EF3 /* EmployeeReducerTests.swift */; };
+		697F31B8242FD4B100001EF3 /* SelectionReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697F31B7242FD4B100001EF3 /* SelectionReducerTests.swift */; };
+		697F31BA242FD64200001EF3 /* EmployeeTableDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697F31B9242FD64200001EF3 /* EmployeeTableDataSourceTests.swift */; };
+		697F31BC242FD7B200001EF3 /* JobReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697F31BB242FD7B200001EF3 /* JobReducerTests.swift */; };
+		697F31BE242FD9A800001EF3 /* EmployeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697F31BD242FD9A800001EF3 /* EmployeeTests.swift */; };
+		697F31C12430B2F500001EF3 /* JobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697F31BF2430B2BA00001EF3 /* JobTests.swift */; };
 		69A6E1D9240CAB7A00D98AC7 /* EmployeeTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A6E1D8240CAB7A00D98AC7 /* EmployeeTableDataSource.swift */; };
 		69A6E1DB240EC92F00D98AC7 /* KeyboardEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A6E1DA240EC92F00D98AC7 /* KeyboardEventHandler.swift */; };
 		69A6E1DE240ECD2500D98AC7 /* EmployeeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A6E1DD240ECD2500D98AC7 /* EmployeeTableView.swift */; };
@@ -45,11 +51,29 @@
 		69F350AD23EB9F8700F61437 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 69F350AC23EB9F8700F61437 /* ReSwift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		697F3153242846A900001EF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69F3508E23EA0A7100F61437 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69F3509523EA0A7100F61437;
+			remoteInfo = "reswift-jobs";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		6972331F240183CA00E91FBA /* JobWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobWindowController.swift; sourceTree = "<group>"; };
 		697233212402B27700E91FBA /* JobWindowTitleBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobWindowTitleBarController.swift; sourceTree = "<group>"; };
 		697233232405F75000E91FBA /* EmployeePasteboardWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeePasteboardWriter.swift; sourceTree = "<group>"; };
 		69723330240C342800E91FBA /* ArrayUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtil.swift; sourceTree = "<group>"; };
+		697F314E242846A900001EF3 /* reswift-jobsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "reswift-jobsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		697F315824284AE400001EF3 /* Info-Tests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-Tests.plist"; sourceTree = "<group>"; };
+		697F315B24284C5E00001EF3 /* EmployeeReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeReducerTests.swift; sourceTree = "<group>"; };
+		697F31B7242FD4B100001EF3 /* SelectionReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionReducerTests.swift; sourceTree = "<group>"; };
+		697F31B9242FD64200001EF3 /* EmployeeTableDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableDataSourceTests.swift; sourceTree = "<group>"; };
+		697F31BB242FD7B200001EF3 /* JobReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobReducerTests.swift; sourceTree = "<group>"; };
+		697F31BD242FD9A800001EF3 /* EmployeeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTests.swift; sourceTree = "<group>"; };
+		697F31BF2430B2BA00001EF3 /* JobTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTests.swift; sourceTree = "<group>"; };
 		69A6E1D8240CAB7A00D98AC7 /* EmployeeTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeTableDataSource.swift; sourceTree = "<group>"; };
 		69A6E1DA240EC92F00D98AC7 /* KeyboardEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardEventHandler.swift; sourceTree = "<group>"; };
 		69A6E1DD240ECD2500D98AC7 /* EmployeeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableView.swift; sourceTree = "<group>"; };
@@ -87,6 +111,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		697F314B242846A900001EF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69F3509323EA0A7100F61437 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -119,8 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				69AE637523F0E58900BF70EA /* Employee.swift */,
+				697F31BD242FD9A800001EF3 /* EmployeeTests.swift */,
 				69AE639123F0F3A800BF70EA /* EmployeeID.swift */,
 				69AE638F23F0EE8100BF70EA /* Job.swift */,
+				697F31BF2430B2BA00001EF3 /* JobTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,6 +186,7 @@
 				697233212402B27700E91FBA /* JobWindowTitleBarController.swift */,
 				69A6E1DA240EC92F00D98AC7 /* KeyboardEventHandler.swift */,
 				69A6E1DC240ECCFE00D98AC7 /* Component */,
+				697F31B9242FD64200001EF3 /* EmployeeTableDataSourceTests.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -173,6 +207,7 @@
 			children = (
 				69AE63AE23FB77ED00BF70EA /* EmployeeActions.swift */,
 				69AE63AC23FB760700BF70EA /* EmployeeReducer.swift */,
+				697F315B24284C5E00001EF3 /* EmployeeReducerTests.swift */,
 			);
 			path = "Employee Actions";
 			sourceTree = "<group>";
@@ -182,6 +217,7 @@
 			children = (
 				69AE63A923FB75EC00BF70EA /* JobActions.swift */,
 				69AE63A823FB75EC00BF70EA /* JobReducer.swift */,
+				697F31BB242FD7B200001EF3 /* JobReducerTests.swift */,
 			);
 			path = "Job Actions";
 			sourceTree = "<group>";
@@ -200,6 +236,7 @@
 				69AE63BA23FCAB4000BF70EA /* SelectionActions.swift */,
 				69AE63B823FCAB1000BF70EA /* SelectionReducer.swift */,
 				69AE63B623FCAAD500BF70EA /* SelectionState.swift */,
+				697F31B7242FD4B100001EF3 /* SelectionReducerTests.swift */,
 			);
 			path = "Selection Changes";
 			sourceTree = "<group>";
@@ -216,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				69F3509623EA0A7100F61437 /* reswift-jobs.app */,
+				697F314E242846A900001EF3 /* reswift-jobsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,6 +271,7 @@
 				69F3509F23EA0A7300F61437 /* Assets.xcassets */,
 				69F350A123EA0A7300F61437 /* Main.storyboard */,
 				69F350A423EA0A7300F61437 /* Info.plist */,
+				697F315824284AE400001EF3 /* Info-Tests.plist */,
 				69F350A523EA0A7300F61437 /* reswift_jobs.entitlements */,
 			);
 			path = "reswift-jobs";
@@ -241,6 +280,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		697F314D242846A900001EF3 /* reswift-jobsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 697F3157242846A900001EF3 /* Build configuration list for PBXNativeTarget "reswift-jobsTests" */;
+			buildPhases = (
+				697F314A242846A900001EF3 /* Sources */,
+				697F314B242846A900001EF3 /* Frameworks */,
+				697F314C242846A900001EF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				697F3154242846A900001EF3 /* PBXTargetDependency */,
+			);
+			name = "reswift-jobsTests";
+			productName = "reswift-jobsTests";
+			productReference = 697F314E242846A900001EF3 /* reswift-jobsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		69F3509523EA0A7100F61437 /* reswift-jobs */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69F350A823EA0A7300F61437 /* Build configuration list for PBXNativeTarget "reswift-jobs" */;
@@ -272,6 +329,11 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Heynow Software";
 				TargetAttributes = {
+					697F314D242846A900001EF3 = {
+						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
+						TestTargetID = 69F3509523EA0A7100F61437;
+					};
 					69F3509523EA0A7100F61437 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -294,11 +356,19 @@
 			projectRoot = "";
 			targets = (
 				69F3509523EA0A7100F61437 /* reswift-jobs */,
+				697F314D242846A900001EF3 /* reswift-jobsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		697F314C242846A900001EF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69F3509423EA0A7100F61437 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -331,6 +401,19 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		697F314A242846A900001EF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				697F31BE242FD9A800001EF3 /* EmployeeTests.swift in Sources */,
+				697F31BC242FD7B200001EF3 /* JobReducerTests.swift in Sources */,
+				697F315C24284C5E00001EF3 /* EmployeeReducerTests.swift in Sources */,
+				697F31C12430B2F500001EF3 /* JobTests.swift in Sources */,
+				697F31BA242FD64200001EF3 /* EmployeeTableDataSourceTests.swift in Sources */,
+				697F31B8242FD4B100001EF3 /* SelectionReducerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69F3509223EA0A7100F61437 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -373,6 +456,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		697F3154242846A900001EF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69F3509523EA0A7100F61437 /* reswift-jobs */;
+			targetProxy = 697F3153242846A900001EF3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		69F350A123EA0A7300F61437 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -385,6 +476,47 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		697F3155242846A900001EF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "reswift-jobs/Info-Tests.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.heynow.reswift-jobsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reswift-jobs.app/Contents/MacOS/reswift-jobs";
+			};
+			name = Debug;
+		};
+		697F3156242846A900001EF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "reswift-jobs/Info-Tests.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.heynow.reswift-jobsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reswift-jobs.app/Contents/MacOS/reswift-jobs";
+			};
+			name = Release;
+		};
 		69F350A623EA0A7300F61437 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -537,6 +669,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		697F3157242846A900001EF3 /* Build configuration list for PBXNativeTarget "reswift-jobsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				697F3155242846A900001EF3 /* Debug */,
+				697F3156242846A900001EF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		69F3509123EA0A7100F61437 /* Build configuration list for PBXProject "reswift-jobs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
