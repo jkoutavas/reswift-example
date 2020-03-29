@@ -12,7 +12,7 @@ class EmployeeTableDataSource: NSObject {
     var viewModel: JobViewModel?
     var store: JobStore?
 
-    let emptyEmployee = EmployeeViewModel(identifier: "unknown", name: "unknown", skills: [])
+    let emptyEmployee = EmployeeViewModel(identifier: "unknown", name: "unknown", roles: [])
 }
 
 extension EmployeeTableDataSource: NSTableViewDataSource {
@@ -63,7 +63,7 @@ extension EmployeeTableDataSource: NSTableViewDataSource {
                         return false
                     }
                     store?.dispatch(InsertEmployeeAction(employee:
-                        Employee(employeeID: employeeID, name: viewModel.name, skills: viewModel.skills),
+                        Employee(employeeID: employeeID, name: viewModel.name, roles: viewModel.roles),
                                                          index: row))
                     return true
                 } catch {
@@ -77,6 +77,7 @@ extension EmployeeTableDataSource: NSTableViewDataSource {
 }
 
 extension EmployeeTableDataSource: EmployeeTableDataSourceType {
+    
     var selectedRow: Int? { return viewModel?.selectedRow }
     var selectedEmployee: EmployeeViewModel? { return viewModel?.selectedEmployee }
     var employeeCount: Int { return viewModel?.itemCount ?? 0 }
@@ -102,7 +103,7 @@ extension EmployeeTableDataSource: EmployeeTableDataSourceType {
             if tableColumn == tableView.tableColumns[0] {
                 textField.stringValue = employee.name
             } else {
-                textField.stringValue = employee.skills.joined(separator: ", ")
+                textField.stringValue = employee.roles.joined(separator: ", ")
             }
         }
 
@@ -118,13 +119,13 @@ extension EmployeeTableDataSource: EmployeeTableDataSourceType {
         }
     }
 
-    func editSkills(skillsString: String, row: Int) {
+    func editRoles(rolesString: String, row: Int) {
         if let employee = viewModel?.employees[row] {
             guard let employeeID = EmployeeID(identifier: employee.identifier)
             else { preconditionFailure("Invalid Employee item identifier \(employee.identifier).") }
 
-            store?.dispatch(EmployeeAction.editSkills(employeeID,
-                                                      skills: skillsString.components(separatedBy: ",")))
+            store?.dispatch(EmployeeAction.editRoles(employeeID,
+                                                     roles: rolesString.components(separatedBy: ",")))
         }
     }
 }

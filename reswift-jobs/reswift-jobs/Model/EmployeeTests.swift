@@ -15,11 +15,11 @@ class EmployeeTests: XCTestCase {
             .hasEqualContent(Employee(name: "b")))
     }
 
-    func testHasEqualContent_WithDifferentSkills_ReturnsTrue() {
-        let employee = Employee(name: "a", skills: ["a"])
-        var employeeSkilled = employee
-        employeeSkilled.skills = ["b"]
-        XCTAssertTrue(employee.hasEqualContent(employeeSkilled))
+    func testHasEqualContent_WithDifferentRoles_ReturnsTrue() {
+        let employee = Employee(name: "a", roles: ["a"])
+        var employeeAssigned = employee
+        employeeAssigned.roles = ["b"]
+        XCTAssertTrue(employee.hasEqualContent(employeeAssigned))
     }
 
     func testHasEqualContent_WithDifferentIDs_ReturnsFalse() {

@@ -73,7 +73,7 @@ class JobViewController: NSViewController {
             if col == 0 {
                 dataSource.renameEmployee(name: textField.stringValue, row: row)
             } else {
-                dataSource.editSkills(skillsString: textField.stringValue, row: row)
+                dataSource.editRoles(rolesString: textField.stringValue, row: row)
             }
         }
     }
@@ -100,7 +100,7 @@ protocol EmployeeTableDataSourceType {
     func setStore(jobStore: JobStore?)
     func employeeCellView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?
     func renameEmployee(name: String, row: Int)
-    func editSkills(skillsString: String, row: Int)
+    func editRoles(rolesString: String, row: Int)
 }
 
 extension EmployeeTableDataSourceType where Self: NSTableViewDataSource {

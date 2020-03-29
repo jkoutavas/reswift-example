@@ -19,7 +19,7 @@ protocol UndoActionContext {
     var jobTitle: String? { get }
 
     func employeeName(employeeID: EmployeeID) -> String?
-    func employeeSkills(employeeID: EmployeeID) -> [String]?
+    func employeeRoles(employeeID: EmployeeID) -> [String]?
     func jobIn(employeeID: EmployeeID) -> JobIn?
 }
 

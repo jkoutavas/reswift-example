@@ -21,7 +21,7 @@ class EmployeeTableDataSourceTests: XCTestCase {
     func testNumberOfRows_WithVM_ReturnsVMItemCount() {
         let dataSource = EmployeeTableDataSource()
         let employees = (0 ... 3).map(String.init)
-            .map { EmployeeViewModel(identifier: $0, name: $0, skills: []) }
+            .map { EmployeeViewModel(identifier: $0, name: $0, roles: []) }
         let viewModel = JobViewModel(title: "irrelevant", employees: employees, selectedRow: nil)
 
         dataSource.updateContents(jobViewModel: viewModel)

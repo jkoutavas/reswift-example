@@ -9,16 +9,16 @@
 import Foundation
 
 struct Employee: Codable {
-    static var empty: Employee { return Employee(name: "New Employee", skills: ["skill1", "skill2"]) }
+    static var empty: Employee { return Employee(name: "New Employee", roles: ["role1", "role2"]) }
 
     let employeeID: EmployeeID
     var name: String
-    var skills: [String]
+    var roles: [String]
 
-    init(employeeID: EmployeeID = EmployeeID(), name: String, skills: [String] = []) {
+    init(employeeID: EmployeeID = EmployeeID(), name: String, roles: [String] = []) {
         self.employeeID = employeeID
         self.name = name
-        self.skills = skills
+        self.roles = roles
     }
 }
 
@@ -31,6 +31,6 @@ extension Employee: Equatable {
 }
 
 func == (lhs: Employee, rhs: Employee) -> Bool {
-    /// Equality check ignoring skills
+    /// Equality check ignoring roles
     return lhs.employeeID == rhs.employeeID && lhs.name == rhs.name
 }

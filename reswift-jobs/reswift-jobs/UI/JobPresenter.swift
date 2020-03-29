@@ -23,7 +23,7 @@ extension EmployeeViewModel {
     init(employee: Employee) {
         identifier = employee.employeeID.identifier
         name = employee.name
-        skills = employee.skills
+        roles = employee.roles
     }
 }
 
