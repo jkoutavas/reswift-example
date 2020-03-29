@@ -6,48 +6,45 @@
 //  Copyright © 2020 Heynow Software. All rights reserved.
 //
 
-import XCTest
 @testable import reswift_jobs
+import XCTest
 
 class JobTests: XCTestCase {
-
     func testEqualContent_WithDifferentTitles_ReturnsFalse() {
-
         let employees = [Employee(name: "irrelevant")]
 
         XCTAssertFalse(Job(title: "a", employees: employees).hasEqualContent(Job(title: "b", employees: employees)))
     }
 
     func testEqualContent_WithDifferentEmployees_ReturnsFalse() {
-
         let oneEmployees = [Employee(name: "one")]
         let otherEmployees = [Employee(name: "other")]
 
-        XCTAssertFalse(Job(title: "a", employees: oneEmployees).hasEqualContent(Job(title: "a", employees: otherEmployees)))
+        XCTAssertFalse(Job(title: "a", employees: oneEmployees).hasEqualContent(Job(title: "a",
+            employees: otherEmployees)))
     }
 
     func testEqualContent_With1ContentEqualemployee_ReturnsTrue() {
-
         let employeeID = EmployeeID()
         let oneEmployees = [Employee(employeeID: employeeID, name: "same")]
         let otherEmployees = [Employee(employeeID: employeeID, name: "same")]
 
-        XCTAssertTrue(Job(title: "a", employees: oneEmployees).hasEqualContent(Job(title: "a", employees: otherEmployees)))
+        XCTAssertTrue(Job(title: "a", employees: oneEmployees).hasEqualContent(Job(title: "a",
+            employees: otherEmployees)))
     }
 
     func testEqualContent_With1ContentEqualemployeeButDifferentCountsLeft_ReturnsFalse() {
-
         let oneEmployees = [Employee(name: "same")]
         let otherEmployees = [
             Employee(name: "same"),
             Employee(name: "other")
         ]
 
-        XCTAssertFalse(Job(title: "a", employees: oneEmployees).hasEqualContent(Job(title: "a", employees: otherEmployees)))
+        XCTAssertFalse(Job(title: "a", employees: oneEmployees).hasEqualContent(Job(title: "a",
+            employees: otherEmployees)))
     }
 
     func testEqualContent_With1ContentEqualemployeeButDifferentCountsRight_ReturnsFalse() {
-
         let oneEmployees = [
             Employee(name: "same"),
             Employee(name: "other")
@@ -56,11 +53,11 @@ class JobTests: XCTestCase {
             Employee(name: "same")
         ]
 
-        XCTAssertFalse(Job(title: "a", employees: oneEmployees).hasEqualContent(Job(title: "a", employees: otherEmployees)))
+        XCTAssertFalse(Job(title: "a", employees: oneEmployees).hasEqualContent(Job(title: "a",
+            employees: otherEmployees)))
     }
 
     func testEqualContent_WithContentEqualemployeesPlusDifference_ReturnsFalse() {
-
         let oneEmployees = [
             Employee(name: "same"),
             Employee(name: "different")
@@ -70,11 +67,11 @@ class JobTests: XCTestCase {
             Employee(name: "unlike")
         ]
 
-        XCTAssertFalse(Job(title: "a", employees: oneEmployees).hasEqualContent(Job(title: "a", employees: otherEmployees)))
+        XCTAssertFalse(Job(title: "a", employees: oneEmployees).hasEqualContent(Job(title: "a",
+            employees: otherEmployees)))
     }
 
     func testEqualContent_WithContentEqualDuplicateemployees_ReturnsFalse() {
-
         let oneEmployees = [
             Employee(name: "same"),
             Employee(name: "same")
@@ -84,13 +81,13 @@ class JobTests: XCTestCase {
             Employee(name: "unlike")
         ]
 
-        XCTAssertFalse(Job(title: "a", employees: oneEmployees).hasEqualContent(Job(title: "a", employees: otherEmployees)))
+        XCTAssertFalse(Job(title: "a", employees: oneEmployees).hasEqualContent(Job(title: "a",
+            employees: otherEmployees)))
     }
 
     // MARK: Adding employees
 
     func testAddEmployee_EmptyJob_AddsEmployee() {
-
         let employee = Employee(name: "an employee")
         var job = Job.empty
 
@@ -101,7 +98,6 @@ class JobTests: XCTestCase {
     }
 
     func testAddEmployee_JobWithEmployee_AddsEmployeeToEnd() {
-
         let newEmployee = Employee(name: "new employee")
         let existingEmployee = Employee(name: "existing employee")
         var job = Job(title: nil, employees: [existingEmployee])
@@ -115,7 +111,6 @@ class JobTests: XCTestCase {
     }
 
     func testInsertEmployee_EmptyJob_At0_AddsEmployee() {
-
         let employee = Employee(name: "an employee")
         var job = Job.empty
 
@@ -126,7 +121,6 @@ class JobTests: XCTestCase {
     }
 
     func testInsertEmployee_EmptyJob_AtNegativeValue_AddsEmployee() {
-
         let employee = Employee(name: "an employee")
         var job = Job.empty
 
@@ -137,7 +131,6 @@ class JobTests: XCTestCase {
     }
 
     func testInsertEmployee_EmptyJob_At1000_AddsEmployee() {
-
         let employee = Employee(name: "an employee")
         var job = Job.empty
 
@@ -148,7 +141,6 @@ class JobTests: XCTestCase {
     }
 
     func testInsertEmployee_JobWithEmployee_AtNegativeValue_AddsEmployeeToBeginning() {
-
         let newEmployee = Employee(name: "new employee")
         let existingEmployee = Employee(name: "existing employee")
         var job = Job(title: nil, employees: [existingEmployee])
@@ -162,7 +154,6 @@ class JobTests: XCTestCase {
     }
 
     func testInsertEmployee_JobWithEmployee_At0_AddsEmployeeToBeginning() {
-
         let newEmployee = Employee(name: "new employee")
         let existingEmployee = Employee(name: "existing employee")
         var job = Job(title: nil, employees: [existingEmployee])
@@ -176,7 +167,6 @@ class JobTests: XCTestCase {
     }
 
     func testInsertEmployee_JobWithEmployee_AtHighValue_AddsEmployeeToEnd() {
-
         let newEmployee = Employee(name: "new employee")
         let existingEmployee = Employee(name: "existing employee")
         var job = Job(title: nil, employees: [existingEmployee])
@@ -190,7 +180,6 @@ class JobTests: XCTestCase {
     }
 
     func testInsertEmployee_JobWith2employees_At1_AddsEmployeeInBetween() {
-
         let newEmployee = Employee(name: "new employee")
         let firstEmployee = Employee(name: "existing employee")
         let secondEmployee = Employee(name: "another existing employee")
@@ -205,7 +194,6 @@ class JobTests: XCTestCase {
     // MARK: Removing employees
 
     func testRemoveEmployee_employeeWithDifferentID_ReturnsUnchangedJob() {
-
         let existingEmployee = Employee(employeeID: EmployeeID(), name: "irrelevant")
         var job = Job(title: nil, employees: [existingEmployee])
 
@@ -216,7 +204,6 @@ class JobTests: XCTestCase {
     }
 
     func testRemoveEmployee_employeeWithSameID_ReturnsEmptyJob() {
-
         let employeeID = EmployeeID()
         let existingEmployee = Employee(employeeID: employeeID, name: "irrelevant")
         var job = Job(title: nil, employees: [existingEmployee])
@@ -227,7 +214,6 @@ class JobTests: XCTestCase {
     }
 
     func testRemoveEmployee_OneOf2employeesWithSameID_ReturnsJobWithOtheremployeeLeft() {
-
         let employeeID = EmployeeID()
         let matchingEmployee = Employee(employeeID: employeeID, name: "irrelevant")
         let unmatchingEmployee = Employee(employeeID: EmployeeID(), name: "also irrelevant")

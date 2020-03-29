@@ -9,7 +9,6 @@
 import Foundation
 
 struct Job: Codable {
-
     static var empty: Job { return Job(title: nil, employees: []) }
 
     var title: String?

@@ -6,19 +6,16 @@
 //  Copyright © 2020 Heynow Software. All rights reserved.
 //
 
-import XCTest
 @testable import reswift_jobs
+import XCTest
 
 class EmployeeTests: XCTestCase {
-
     func testHasEqualContent_WithDifferentName_ReturnsFalse() {
-
         XCTAssertFalse(Employee(name: "a")
             .hasEqualContent(Employee(name: "b")))
     }
 
     func testHasEqualContent_WithDifferentSkills_ReturnsTrue() {
-
         let employee = Employee(name: "a", skills: ["a"])
         var employeeSkilled = employee
         employeeSkilled.skills = ["b"]
@@ -26,7 +23,6 @@ class EmployeeTests: XCTestCase {
     }
 
     func testHasEqualContent_WithDifferentIDs_ReturnsFalse() {
-
         XCTAssertFalse(Employee(employeeID: EmployeeID(), name: "a")
             .hasEqualContent(Employee(employeeID: EmployeeID(), name: "a")))
     }

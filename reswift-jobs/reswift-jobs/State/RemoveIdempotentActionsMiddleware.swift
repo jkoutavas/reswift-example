@@ -15,9 +15,9 @@ import ReSwift
 /// but it serves to demonstrate how you can interrupt the action handling chain.
 ///
 // TODO: stop firing events when the view knows nothing has changed.
-let removeIdempotentActionsMiddleware: Middleware<JobState> = { _, getState in
-    { next in
-        { action in
+let removeIdempotentActionsMiddleware: Middleware<JobState> = { _, getState in {
+    next in {
+        action in
 
             guard let state = getState() else {
                 next(action)

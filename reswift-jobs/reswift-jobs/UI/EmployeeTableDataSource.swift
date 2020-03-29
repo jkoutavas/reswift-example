@@ -64,7 +64,7 @@ extension EmployeeTableDataSource: NSTableViewDataSource {
                     }
                     store?.dispatch(InsertEmployeeAction(employee:
                         Employee(employeeID: employeeID, name: viewModel.name, skills: viewModel.skills),
-                        index: row))
+                                                         index: row))
                     return true
                 } catch {
                     return false
@@ -120,11 +120,11 @@ extension EmployeeTableDataSource: EmployeeTableDataSourceType {
 
     func editSkills(skillsString: String, row: Int) {
         if let employee = viewModel?.employees[row] {
-             guard let employeeID = EmployeeID(identifier: employee.identifier)
-             else { preconditionFailure("Invalid Employee item identifier \(employee.identifier).") }
+            guard let employeeID = EmployeeID(identifier: employee.identifier)
+            else { preconditionFailure("Invalid Employee item identifier \(employee.identifier).") }
 
-             store?.dispatch(EmployeeAction.editSkills(employeeID,
-                skills: skillsString.components(separatedBy: ",")))
-         }
+            store?.dispatch(EmployeeAction.editSkills(employeeID,
+                                                      skills: skillsString.components(separatedBy: ",")))
+        }
     }
 }

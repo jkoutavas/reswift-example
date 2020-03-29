@@ -6,23 +6,20 @@
 //  Copyright © 2020 Heynow Software. All rights reserved.
 //
 
-import XCTest
 @testable import reswift_jobs
+import XCTest
 
 // swiftlint:disable nesting
 
 class SelectionReducerTests: XCTestCase {
-
     func testHandleAction_WithUnsupportedActionAndNil_ReturnsNil() {
-
-        struct SomeAction: Action { }
+        struct SomeAction: Action {}
 
         XCTAssertNil(selectionReducer(SomeAction(), state: nil))
     }
 
     func testHandleAction_WithUnsupportedActionAndState_ReturnsState() {
-
-        struct SomeAction: Action { }
+        struct SomeAction: Action {}
         let state = SelectionState(123)
 
         let result = selectionReducer(SomeAction(), state: SelectionState(123))
@@ -31,7 +28,6 @@ class SelectionReducerTests: XCTestCase {
     }
 
     func testHandleAction_WithDeselectAndNil_ReturnsNil() {
-
         let state = SelectionState.none
 
         let result = selectionReducer(SelectionAction.deselect, state: state)
@@ -40,7 +36,6 @@ class SelectionReducerTests: XCTestCase {
     }
 
     func testHandleAction_WithDeselectAndState_ReturnsNil() {
-
         let state = SelectionState(456)
 
         let result = selectionReducer(SelectionAction.deselect, state: state)
@@ -49,7 +44,6 @@ class SelectionReducerTests: XCTestCase {
     }
 
     func testHandleAction_WithSelectionChangeAndNil_ReturnsNewState() {
-
         let state = SelectionState.none
         let newValue = 9812
 
@@ -59,7 +53,6 @@ class SelectionReducerTests: XCTestCase {
     }
 
     func testHandleAction_WithSelectionStateAndState_ReturnsNewState() {
-
         let state = SelectionState.none
         let newValue = 4466
 

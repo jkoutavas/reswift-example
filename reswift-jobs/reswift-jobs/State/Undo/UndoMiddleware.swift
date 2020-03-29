@@ -53,9 +53,9 @@ func undoMiddleware(undoManager: UndoManager) -> Middleware<JobState> {
         return UndoCommand(appAction: action, context: context, dispatch: dispatch)
     }
 
-    let undoMiddleware: Middleware<JobState> = { dispatch, getState in
-        { next in
-            { action in
+    let undoMiddleware: Middleware<JobState> = { dispatch, getState in {
+        next in {
+            action in
 
                 // Pass already undone actions through
                 if let undoneAction = action as? NotUndoable {

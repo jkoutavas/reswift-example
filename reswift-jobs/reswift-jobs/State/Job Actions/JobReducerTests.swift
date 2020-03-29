@@ -8,16 +8,14 @@
 
 import Foundation
 
-import XCTest
 import ReSwift
 @testable import reswift_jobs
+import XCTest
 
 class JobReducerTests: XCTestCase {
-
     // MARK: Renaming action
 
     func testReduce_Rename_ReturnsListWithNewName() {
-
         let newName = "a new name"
         let oldJob = Job(title: nil, employees: [])
         let state = JobState(job: oldJob, selection: nil)
@@ -30,7 +28,6 @@ class JobReducerTests: XCTestCase {
     // MARK: Replacement action
 
     func testReduce_ReplaceAction_ReturnsStateWithNewList() {
-
         let newJob = Job(title: "new", employees: [])
         let oldJob = Job(title: "old", employees: [])
         let state = JobState(job: oldJob, selection: nil)

@@ -6,24 +6,21 @@
 //  Copyright © 2020 Heynow Software. All rights reserved.
 //
 
-import XCTest
 import ReSwift
 @testable import reswift_jobs
+import XCTest
 
 // swiftlint:disable nesting
 
 class EmployeeReducerTests: XCTestCase {
-
     func testHandleAction_WithUnsupportedActionAndNil_ReturnsNil() {
-
-        struct SomeAction: Action { }
+        struct SomeAction: Action {}
 
         XCTAssertNil(employeeReducer(SomeAction(), state: nil))
     }
 
     func testHandleAction_WithUnsupportedActionAndState_ReturnsState() {
-
-        struct SomeAction: Action { }
+        struct SomeAction: Action {}
         let state = Employee(name: "Bob Smith", skills: ["Foreman"])
 
         let result = employeeReducer(SomeAction(), state: state)
@@ -32,7 +29,6 @@ class EmployeeReducerTests: XCTestCase {
     }
 
     func testHandleAction_WithRenameAction_ItemWithDifferentID_ReturnsSameItem() {
-
         let originalName = "old name"
         let item = Employee(employeeID: EmployeeID(), name: originalName)
 

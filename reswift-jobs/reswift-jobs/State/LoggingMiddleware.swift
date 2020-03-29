@@ -8,9 +8,9 @@
 
 import ReSwift
 
-let loggingMiddleware: Middleware<JobState> = { _, _ in
-    { next in
-        { action in
+let loggingMiddleware: Middleware<JobState> = { _, _ in {
+    next in {
+        action in
             print("> \(action)")
             return next(action)
         }
