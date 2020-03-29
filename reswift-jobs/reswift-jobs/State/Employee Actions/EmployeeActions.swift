@@ -10,7 +10,7 @@ import Foundation
 
 enum EmployeeAction: UndoableAction {
     case rename(EmployeeID, name: String)
-    case editSkills(EmployeeID, skills: Array<String>)
+    case editSkills(EmployeeID, skills: [String])
 
     // MARK: Undoable
 

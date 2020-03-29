@@ -12,7 +12,7 @@ protocol DisplaysEmployee {
     func showEmployee(employeeViewModel viewModel: EmployeeViewModel)
 }
 
-struct EmployeeViewModel : Codable {
+struct EmployeeViewModel: Codable {
     let identifier: String
 
     let name: String

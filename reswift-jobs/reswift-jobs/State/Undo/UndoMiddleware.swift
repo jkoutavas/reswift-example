@@ -21,8 +21,8 @@ class UndoableStateAdapter: UndoActionContext {
     func employeeName(employeeID: EmployeeID) -> String? {
         return state.job.employee(employeeID: employeeID)?.name
     }
-    
-    func employeeSkills(employeeID: EmployeeID) -> Array<String>? {
+
+    func employeeSkills(employeeID: EmployeeID) -> [String]? {
         return state.job.employee(employeeID: employeeID)?.skills
     }
 
